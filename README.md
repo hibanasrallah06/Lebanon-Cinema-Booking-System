@@ -160,15 +160,6 @@ Before running the project, make sure you have:
 
 ---
 
-## 🚀 Getting Started
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/hibanasrallah06/Lebanon-Cinema-Booking-System.git
-cd Lebanon-Cinema-Booking-System
-
-
 ## 🔒 Security
 
 Sensitive credentials are not included in the repository.
