@@ -110,6 +110,6 @@ This project was developed as a university/training project to demonstrate deskt
 
 ## 👩‍💻 Authors
 
-**Hiba Nasrallah & Zaynab**
+**Hiba Nasrallah**
 
-Lebanon — Computer Science Project
+Lebanon,Tyre-IUL — Computer Science Project
