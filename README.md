@@ -2,7 +2,7 @@
 
 A desktop-based **Cinema Management and Booking System** developed using **Java, JavaFX, and MySQL**.
 
-The system is designed to manage cinema branches across Lebanon and provides a complete solution for managing movies, shows, halls, seats, customers, bookings, payments, snacks, employees, reports, and AI-powered movie recommendations.
+The system is designed to manage cinema branches across Lebanon, including movies, shows, halls, seats, customers, bookings, payments, snacks, employees, reports, and AI-powered movie recommendations.
 
 ---
 
@@ -11,18 +11,17 @@ The system is designed to manage cinema branches across Lebanon and provides a c
 ### 🔐 Authentication & Access Control
 - Employee login system
 - Role-based access
-- Secure environment-based configuration
+- Environment-based configuration
 
 ### 🎬 Movie Management
 - Add, edit, and delete movies
 - Movie search and filtering
 - Genre, language, duration, and age rating
-- Movie posters and information through TMDB integration
+- TMDB integration for movie information and posters
 
 ### 🏢 Cinema Management
 - Manage cinema branches
-- Manage cinema halls
-- Manage hall capacity
+- Manage cinema halls and capacity
 - Manage cities and cinema information
 
 ### 🕒 Show Management
@@ -31,8 +30,7 @@ The system is designed to manage cinema branches across Lebanon and provides a c
 - Manage show dates and times
 
 ### 🎟️ Booking & Seat Management
-- Customer selection
-- Show selection
+- Customer and show selection
 - Interactive seat selection
 - Standard and VIP seats
 - Real-time seat availability
@@ -42,9 +40,10 @@ The system is designed to manage cinema branches across Lebanon and provides a c
 - Print and email booking options
 
 ### 🤖 AI Movie Recommendations
-- AI-powered movie recommendation feature
-- Recommends movies based on user preferences
-- Displays recommended movies with genre, language, duration, rating, and descriptions
+- AI-powered movie recommendations
+- Recommendations based on user preferences
+- Genre, language, age rating, and duration matching
+- Movie details and descriptions
 
 ### 🍿 Snack Management
 - Manage cinema snacks
@@ -61,54 +60,48 @@ The system is designed to manage cinema branches across Lebanon and provides a c
 - Weekly revenue comparison
 - Movie viewing distribution
 - Daily revenue trends
-- Report export functionality
+- Cinema branch comparison
+- Report export
 
 ### 📧 Email Integration
 - Email booking information
-- Email notifications using JavaMail
+- Booking notifications using JavaMail
 
 ---
 
 ## 🖥️ Screenshots
 
 ### 🔐 Login
-
 <p align="center">
   <img src="screenshots/Login Page.png" width="850">
 </p>
 
 ### 🏠 Dashboard
-
 <p align="center">
   <img src="screenshots/Dashboard Page.png" width="850">
 </p>
 
 ### 🎬 Movie Management
-
 <p align="center">
   <img src="screenshots/Movies Page.png" width="850">
 </p>
 
 ### 🤖 AI Movie Recommendations
-
 <p align="center">
   <img src="screenshots/AI Page.png" width="850">
 </p>
 
 ### 🎟️ Booking & Seat Selection
-
 <p align="center">
   <img src="screenshots/Booking Page.png" width="850">
 </p>
 
 ### 🏢 Cinema & Hall Management
-
 <p align="center">
   <img src="screenshots/Cinema.png" width="850">
 </p>
 
 ### 📊 Reports & Analytics
-
 <p align="center">
   <img src="screenshots/Report Page.png" width="850">
 </p>
@@ -135,12 +128,12 @@ The system is designed to manage cinema branches across Lebanon and provides a c
 CinemaSystem/
 │
 ├── src/
-│   ├── cinemasystem/
-│   │   ├── controller/       # Application controllers
-│   │   ├── database/         # Database connection
-│   │   ├── model/            # Application models
-│   │   ├── util/             # Utility and service classes
-│   │   └── ...
+│   └── cinemasystem/
+│       ├── controller/       # Application controllers
+│       ├── database/         # Database connection
+│       ├── model/            # Application models
+│       ├── util/             # Utility and service classes
+│       └── ...
 │
 ├── lib/                      # Required third-party libraries
 ├── nbproject/                # NetBeans project configuration
@@ -150,7 +143,6 @@ CinemaSystem/
 ├── build.xml
 ├── manifest.mf
 └── README.md
-
 
 ---
 
@@ -173,6 +165,7 @@ Before running the project, make sure you have:
 ```bash
 git clone https://github.com/hibanasrallah06/Lebanon-Cinema-Booking-System.git
 cd Lebanon-Cinema-Booking-System
+
 
 ## 🔒 Security
 
@@ -233,7 +226,7 @@ The reporting module provides:
 
 **Hiba Nasrallah**
 
-Computer Science Student at Islamic University Of Lebanon-Tyre Campus
+Computer Science Student at Islamic University Of Lebanon (IUL) - Tyre Campus
 
 ---
 
