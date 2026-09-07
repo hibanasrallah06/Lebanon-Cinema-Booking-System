@@ -146,6 +146,8 @@ CinemaSystem/
 
 ---
 
+```
+
 ## ⚙️ Requirements
 
 Before running the project, make sure you have:
