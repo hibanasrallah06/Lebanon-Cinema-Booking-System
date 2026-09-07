@@ -1,115 +1,244 @@
 # 🎬 Lebanon Cinema Booking System
 
-A desktop cinema management and booking system developed with **Java**, **JavaFX**, and **MySQL**. The system is designed to manage cinema branches across Lebanon and provides tools for employees to manage movies, halls, seats, shows, customers, bookings, payments, snacks, employees, and reports.
+A desktop-based **Cinema Management and Booking System** developed using **Java, JavaFX, and MySQL**.
+
+The system is designed to manage cinema branches across Lebanon and provides a complete solution for managing movies, shows, halls, seats, customers, bookings, payments, snacks, employees, reports, and AI-powered movie recommendations.
+
+---
 
 ## ✨ Features
 
-- 🔐 Employee login and role-based access
-- 🎬 Movie management
-- 🏢 Cinema branch management
-- 🏛️ Hall and seat management
-- 🕒 Show scheduling
-- 👤 Customer management
-- 🎟️ Seat booking and booking management
-- 💳 Payment management
-- 🍿 Snack management
-- 📊 Reports and cinema performance statistics
-- 🤖 AI/movie recommendation features
-- 📧 Email notifications
-- 🎞️ TMDB integration for movie information and posters
+### 🔐 Authentication & Access Control
+- Employee login system
+- Role-based access
+- Secure environment-based configuration
+
+### 🎬 Movie Management
+- Add, edit, and delete movies
+- Movie search and filtering
+- Genre, language, duration, and age rating
+- Movie posters and information through TMDB integration
+
+### 🏢 Cinema Management
+- Manage cinema branches
+- Manage cinema halls
+- Manage hall capacity
+- Manage cities and cinema information
+
+### 🕒 Show Management
+- Schedule movie shows
+- Assign movies to halls
+- Manage show dates and times
+
+### 🎟️ Booking & Seat Management
+- Customer selection
+- Show selection
+- Interactive seat selection
+- Standard and VIP seats
+- Real-time seat availability
+- Booking summary and invoice
+- Snack selection
+- Booking confirmation
+- Print and email booking options
+
+### 🤖 AI Movie Recommendations
+- AI-powered movie recommendation feature
+- Recommends movies based on user preferences
+- Displays recommended movies with genre, language, duration, rating, and descriptions
+
+### 🍿 Snack Management
+- Manage cinema snacks
+- Add snacks to bookings
+- Quantity management
+- Automatic price calculation
+
+### 📊 Reports & Analytics
+- Cinema performance reports
+- Revenue statistics
+- Tickets sold
+- Number of shows
+- Occupancy rate
+- Weekly revenue comparison
+- Movie viewing distribution
+- Daily revenue trends
+- Report export functionality
+
+### 📧 Email Integration
+- Email booking information
+- Email notifications using JavaMail
+
+---
+
+## 🖥️ Screenshots
+
+### 🔐 Login
+
+<p align="center">
+  <img src="screenshots/Login Page.png" width="850">
+</p>
+
+### 🏠 Dashboard
+
+<p align="center">
+  <img src="screenshots/Dashboard Page.png" width="850">
+</p>
+
+### 🎬 Movie Management
+
+<p align="center">
+  <img src="screenshots/Movies Page.png" width="850">
+</p>
+
+### 🤖 AI Movie Recommendations
+
+<p align="center">
+  <img src="screenshots/AI Page.png" width="850">
+</p>
+
+### 🎟️ Booking & Seat Selection
+
+<p align="center">
+  <img src="screenshots/Booking Page.png" width="850">
+</p>
+
+### 🏢 Cinema & Hall Management
+
+<p align="center">
+  <img src="screenshots/Cinema.png" width="850">
+</p>
+
+### 📊 Reports & Analytics
+
+<p align="center">
+  <img src="screenshots/Report Page.png" width="850">
+</p>
+
+---
 
 ## 🛠️ Technologies
 
-- Java
-- JavaFX
-- MySQL
-- JDBC
-- NetBeans
-- TMDB API
-- JavaMail
+| Technology | Purpose |
+|---|---|
+| **Java** | Core application development |
+| **JavaFX** | Desktop graphical user interface |
+| **MySQL** | Database management |
+| **JDBC** | Database connectivity |
+| **NetBeans** | Development environment |
+| **TMDB API** | Movie information and posters |
+| **JavaMail** | Email integration |
+
+---
 
 ## 📁 Project Structure
 
 ```text
 CinemaSystem/
-├── src/                 # Java source code, controllers, models, FXML and images
-├── lib/                 # Required third-party JAR files
-├── nbproject/           # NetBeans project configuration
-├── database/            # Database scripts (add your exported SQL schema here)
-├── .env.example         # Example environment variables
+│
+├── src/
+│   ├── cinemasystem/
+│   │   ├── controller/       # Application controllers
+│   │   ├── database/         # Database connection
+│   │   ├── model/            # Application models
+│   │   ├── util/             # Utility and service classes
+│   │   └── ...
+│
+├── lib/                      # Required third-party libraries
+├── nbproject/                # NetBeans project configuration
+├── screenshots/              # Project screenshots
+├── .env.example              # Environment variable template
 ├── .gitignore
 ├── build.xml
 ├── manifest.mf
 └── README.md
-```
+
+
+---
 
 ## ⚙️ Requirements
 
-- JDK 17+
-- JavaFX SDK compatible with the project
-- MySQL Server
-- NetBeans (or another Java IDE that supports the project)
+Before running the project, make sure you have:
 
-## 🚀 Setup
+- **JDK 17 or later**
+- **JavaFX SDK**
+- **MySQL Server**
+- **NetBeans IDE** or another compatible Java IDE
+- Required third-party libraries included in the `lib` folder
 
-### 1. Clone the repository
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/CinemaSystem.git
-cd CinemaSystem
-```
-
-### 2. Create the MySQL database
-
-Create a database named:
-
-```sql
-CREATE DATABASE cinema_booking_system;
-```
-
-Then import the SQL script from the `database/` folder.
-
-> The repository currently does not contain an exported database dump. Export your working `cinema_booking_system` database from MySQL Workbench/phpMyAdmin and save it as `database/cinema_booking_system.sql` before publishing the final repository.
-
-### 3. Configure environment variables
-
-Copy `.env.example` to your local environment configuration and set your own values. Do **not** commit `.env` or real credentials.
-
-Required variables:
-
-```text
-CINEMA_DB_URL
-CINEMA_DB_USER
-CINEMA_DB_PASSWORD
-CINEMA_SENDER_EMAIL
-CINEMA_EMAIL_APP_PASSWORD
-TMDB_READ_ACCESS_TOKEN
-```
-
-### 4. Open the project
-
-Open the project folder in NetBeans and make sure the JavaFX libraries and MySQL connector are available.
-
-### 5. Run
-
-Run the main application class:
-
-```text
-cinemasystem.CinemaSystem
-```
+git clone https://github.com/hibanasrallah06/Lebanon-Cinema-Booking-System.git
+cd Lebanon-Cinema-Booking-System
 
 ## 🔒 Security
 
-API tokens, email app passwords, and database passwords are intentionally loaded from environment variables and should never be committed to GitHub.
+Sensitive credentials are not included in the repository.
 
-If a credential was previously committed to a public repository, **rotate/revoke it** even after removing it from the latest files because Git history may still contain it.
+The application uses environment variables for:
 
-## 📌 Notes
+- Database credentials
+- Email credentials
+- TMDB API token
 
-This project was developed as a university/training project to demonstrate desktop GUI development, database connectivity, CRUD operations, booking workflows, reporting, and API integration.
+Use `.env.example` as a template and never commit your actual `.env` file.
 
-## 👩‍💻 Authors
+---
 
-**Hiba Nasrallah & Zaynab**
+## 🤖 AI Movie Recommendations
 
-Lebanon — Computer Science Project
+The system includes an AI-powered recommendation feature that suggests movies based on user preferences such as:
+
+- Genre
+- Language
+- Age rating
+- Duration
+
+Movies are matched and ranked according to preference compatibility, then displayed with their main information and descriptions.
+
+---
+
+## 📊 Reports & Analytics
+
+The reporting module provides:
+
+- Revenue statistics
+- Tickets sold
+- Number of shows
+- Occupancy rate
+- Weekly revenue comparison
+- Movie viewing distribution
+- Daily revenue trends
+- Cinema branch comparison
+- Report export
+
+---
+
+## 🔮 Future Improvements
+
+- Online customer booking
+- Mobile application
+- Online payment integration
+- Advanced machine-learning recommendations
+- Customer accounts and booking history
+- Cloud database integration
+- Real-time synchronization between cinema branches
+
+---
+
+## 👩‍💻 Author
+
+**Hiba Nasrallah**
+
+Computer Science Student at Islamic University Of Lebanon-Tyre Campus
+
+---
+
+## 📌 Project Status
+
+**Completed – University Training Project**
+
+A desktop-based cinema management and booking system with JavaFX, MySQL, TMDB integration, email functionality, reporting, and AI-powered movie recommendations.
