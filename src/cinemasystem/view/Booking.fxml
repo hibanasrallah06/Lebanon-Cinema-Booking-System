@@ -1,0 +1,923 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        prefWidth="1200.0"
+        prefHeight="750.0"
+        minWidth="850.0"
+        minHeight="600.0"
+        xmlns="http://javafx.com/javafx/26"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="cinemasystem.controller.BookingController">
+
+    <!-- ========================================================= -->
+    <!-- HEADER -->
+    <!-- ========================================================= -->
+
+    <top>
+
+        <VBox
+                spacing="12.0"
+                style="-fx-background-color:#151515;
+                       -fx-padding:18 35 20 35;
+                       -fx-border-color:#2E7D32;
+                       -fx-border-width:0 0 3 0;">
+
+            <HBox
+                    alignment="CENTER_LEFT"
+                    spacing="12.0">
+
+                <Button
+                        fx:id="btnBack"
+                        onAction="#handleBack"
+                        text="←  Dashboard"
+                        prefWidth="130.0"
+                        prefHeight="46.0"
+                        minHeight="46.0"
+                        maxHeight="46.0"
+                        style="
+                            -fx-background-color:#2A2A2A;
+                            -fx-text-fill:white;
+                            -fx-font-size:14px;
+                            -fx-font-weight:bold;
+                            -fx-background-radius:10;
+                            -fx-border-color:#444444;
+                            -fx-border-width:1;
+                            -fx-border-radius:10;
+                            -fx-cursor:hand;
+                            -fx-padding:0 16 0 16;
+                        "/>
+
+                <Button
+                        fx:id="btnRefresh"
+                        onAction="#handleNewBooking"
+                        text="↻"
+                        prefWidth="52.0"
+                        prefHeight="46.0"
+                        minWidth="52.0"
+                        minHeight="46.0"
+                        maxHeight="46.0"
+                        style="
+                            -fx-background-color:#F4C542;
+                            -fx-text-fill:#151515;
+                            -fx-font-size:24px;
+                            -fx-font-weight:bold;
+                            -fx-background-radius:10;
+                            -fx-border-color:#D9A900;
+                            -fx-border-width:1;
+                            -fx-border-radius:10;
+                            -fx-cursor:hand;
+                            -fx-padding:0;
+                        "/>
+
+                <Region
+                        HBox.hgrow="ALWAYS"/>
+
+                <Label
+                        text="CINEMA SYSTEM"
+                        style="-fx-text-fill:#AAAAAA;
+                               -fx-font-size:12px;
+                               -fx-font-weight:bold;"/>
+
+            </HBox>
+
+
+            <HBox
+                    alignment="CENTER_LEFT"
+                    spacing="12.0">
+
+                <Label
+                        text="🎟"
+                        style="-fx-font-size:30px;"/>
+
+                <VBox
+                        spacing="2.0">
+
+                    <Label
+                            text="Create Booking"
+                            style="-fx-text-fill:white;
+                                   -fx-font-size:28px;
+                                   -fx-font-weight:bold;"/>
+
+                    <Label
+                            text="Select customer, show, seats and snacks"
+                            style="-fx-text-fill:#AAAAAA;
+                                   -fx-font-size:13px;"/>
+
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+
+    </top>
+
+
+    <!-- ========================================================= -->
+    <!-- CENTER -->
+    <!-- ========================================================= -->
+
+    <center>
+
+        <ScrollPane
+                fitToWidth="true"
+                hbarPolicy="NEVER"
+                vbarPolicy="AS_NEEDED"
+                style="-fx-background-color:#F3F4F6;
+                       -fx-background:#F3F4F6;">
+
+            <content>
+
+                <VBox
+                        spacing="22.0"
+                        fillWidth="true"
+                        style="-fx-padding:28 35 40 35;
+                               -fx-background-color:#F3F4F6;">
+
+
+                    <!-- ================================================= -->
+                    <!-- CUSTOMER + SHOW -->
+                    <!-- ================================================= -->
+
+                    <FlowPane
+                            hgap="20.0"
+                            vgap="20.0"
+                            prefWrapLength="1050.0"
+                            alignment="TOP_LEFT">
+
+
+                        <!-- CUSTOMER CARD -->
+
+                        <VBox
+                                prefWidth="510.0"
+                                minWidth="350.0"
+                                spacing="12.0"
+                                style="-fx-background-color:white;
+                                       -fx-background-radius:12;
+                                       -fx-padding:22;
+                                       -fx-border-color:#E1E1E1;
+                                       -fx-border-radius:12;">
+
+                            <HBox
+                                    alignment="CENTER_LEFT"
+                                    spacing="10.0">
+
+                                <Label
+                                        text="👤"
+                                        style="-fx-font-size:22px;"/>
+
+                                <VBox
+                                        spacing="2.0">
+
+                                    <Label
+                                            text="Customer"
+                                            style="-fx-font-size:19px;
+                                                   -fx-font-weight:bold;
+                                                   -fx-text-fill:#222222;"/>
+
+                                    <Label
+                                            text="Choose an existing customer"
+                                            style="-fx-font-size:12px;
+                                                   -fx-text-fill:#888888;"/>
+
+                                </VBox>
+
+                            </HBox>
+
+                            <Separator/>
+
+                            <HBox
+                                    spacing="10.0">
+
+                                <TextField
+                                        fx:id="txtCustomerSearch"
+                                        promptText="Search by name, phone or email..."
+                                        prefHeight="42.0"
+                                        HBox.hgrow="ALWAYS"
+                                        style="-fx-background-color:#F8F8F8;
+                                               -fx-border-color:#D6D6D6;
+                                               -fx-border-radius:7;
+                                               -fx-background-radius:7;
+                                               -fx-padding:0 12 0 12;"/>
+
+                                <Button
+                                        fx:id="btnNewCustomer"
+                                        onAction="#handleNewCustomer"
+                                        text="+ New"
+                                        prefWidth="90.0"
+                                        prefHeight="42.0"
+                                        style="-fx-background-color:#2E7D32;
+                                               -fx-text-fill:white;
+                                               -fx-font-weight:bold;
+                                               -fx-background-radius:7;
+                                               -fx-cursor:hand;"/>
+
+                            </HBox>
+
+                            <VBox
+                                    fx:id="customerResultsPane"
+                                    spacing="3.0"
+                                    maxHeight="110.0"/>
+
+                            <HBox
+                                    alignment="CENTER_LEFT"
+                                    spacing="7.0"
+                                    style="-fx-background-color:#F5F7F6;
+                                           -fx-background-radius:7;
+                                           -fx-padding:9 12 9 12;">
+
+                                <Label
+                                        text="✓"
+                                        style="-fx-text-fill:#2E7D32;
+                                               -fx-font-weight:bold;"/>
+
+                                <Label
+                                        fx:id="lblSelectedCustomer"
+                                        text="No customer selected"
+                                        wrapText="true"
+                                        style="-fx-text-fill:#555555;
+                                               -fx-font-weight:bold;"/>
+
+                            </HBox>
+
+                        </VBox>
+
+
+                        <!-- SHOW CARD -->
+
+                        <VBox
+                                prefWidth="510.0"
+                                minWidth="350.0"
+                                spacing="12.0"
+                                style="-fx-background-color:white;
+                                       -fx-background-radius:12;
+                                       -fx-padding:22;
+                                       -fx-border-color:#E1E1E1;
+                                       -fx-border-radius:12;">
+
+                            <HBox
+                                    alignment="CENTER_LEFT"
+                                    spacing="10.0">
+
+                                <Label
+                                        text="🎬"
+                                        style="-fx-font-size:22px;"/>
+
+                                <VBox
+                                        spacing="2.0">
+
+                                    <Label
+                                            text="Available Shows"
+                                            style="-fx-font-size:19px;
+                                                   -fx-font-weight:bold;
+                                                   -fx-text-fill:#222222;"/>
+
+                                    <Label
+                                            text="Choose a movie show"
+                                            style="-fx-font-size:12px;
+                                                   -fx-text-fill:#888888;"/>
+
+                                </VBox>
+
+                            </HBox>
+
+                            <Separator/>
+
+                            <TextField
+                                    fx:id="txtShowSearch"
+                                    promptText="Search movie, cinema, hall or date..."
+                                    prefHeight="42.0"
+                                    style="-fx-background-color:#F8F8F8;
+                                           -fx-border-color:#D6D6D6;
+                                           -fx-border-radius:7;
+                                           -fx-background-radius:7;
+                                           -fx-padding:0 12 0 12;"/>
+
+                            <VBox
+                                    fx:id="showResultsPane"
+                                    spacing="3.0"
+                                    maxHeight="110.0"/>
+
+                            <HBox
+                                    alignment="CENTER_LEFT"
+                                    spacing="7.0"
+                                    style="-fx-background-color:#F5F7F6;
+                                           -fx-background-radius:7;
+                                           -fx-padding:9 12 9 12;">
+
+                                <Label
+                                        text="✓"
+                                        style="-fx-text-fill:#2E7D32;
+                                               -fx-font-weight:bold;"/>
+
+                                <Label
+                                        fx:id="lblSelectedShow"
+                                        text="No show selected"
+                                        wrapText="true"
+                                        style="-fx-text-fill:#555555;
+                                               -fx-font-weight:bold;"/>
+
+                            </HBox>
+
+                        </VBox>
+
+                    </FlowPane>
+
+
+                    <!-- ================================================= -->
+                    <!-- BOOKING AREA -->
+                    <!-- ================================================= -->
+
+                    <FlowPane
+                            hgap="22.0"
+                            vgap="22.0"
+                            prefWrapLength="1050.0"
+                            alignment="TOP_LEFT">
+
+
+                        <!-- ================================================= -->
+                        <!-- SEAT CARD -->
+                        <!-- ================================================= -->
+
+                        <VBox
+                                prefWidth="700.0"
+                                minWidth="500.0"
+                                spacing="16.0"
+                                style="-fx-background-color:white;
+                                       -fx-background-radius:12;
+                                       -fx-padding:24;
+                                       -fx-border-color:#E1E1E1;
+                                       -fx-border-radius:12;">
+
+                            <HBox
+                                    alignment="CENTER_LEFT">
+
+                                <VBox
+                                        spacing="3.0">
+
+                                    <Label
+                                            text="Select Seats"
+                                            style="-fx-font-size:22px;
+                                                   -fx-font-weight:bold;
+                                                   -fx-text-fill:#222222;"/>
+
+                                    <Label
+                                            text="Select available seats for this booking"
+                                            style="-fx-font-size:12px;
+                                                   -fx-text-fill:#888888;"/>
+
+                                </VBox>
+
+                                <Region
+                                        HBox.hgrow="ALWAYS"/>
+
+                                <Label
+                                        text="● Seat Selection"
+                                        style="-fx-text-fill:#2E7D32;
+                                               -fx-font-weight:bold;"/>
+
+                            </HBox>
+
+
+                            <Separator/>
+
+
+                            <!-- SCREEN -->
+
+                            <VBox
+                                    alignment="CENTER"
+                                    spacing="7.0"
+                                    style="-fx-padding:8 0 5 0;">
+
+                                <Label
+                                        text="SCREEN"
+                                        style="
+                                            -fx-font-size:11px;
+                                            -fx-font-weight:bold;
+                                            -fx-text-fill:#777777;
+                                        "/>
+
+                                <Region
+                                        prefHeight="13.0"
+                                        prefWidth="460.0"
+                                        maxWidth="460.0"
+                                        style="
+                                            -fx-background-color:
+                                                linear-gradient(to bottom,
+                                                    #F5F5F5,
+                                                    #D6D6D6,
+                                                    #8A8A8A);
+                                            -fx-background-radius:30;
+                                            -fx-effect:
+                                                dropshadow(gaussian,
+                                                    rgba(255,255,255,0.35),
+                                                    15,0,0,3);
+                                        "/>
+
+                            </VBox>
+
+
+                            <Label
+                                    text="FRONT"
+                                    alignment="CENTER"
+                                    maxWidth="Infinity"
+                                    style="-fx-font-size:10px;
+                                           -fx-text-fill:#AAAAAA;"/>
+
+
+                            <!-- ================================================= -->
+                            <!-- DYNAMIC CINEMA HALL -->
+                            <!-- ================================================= -->
+
+                            <!--
+                                IMPORTANT:
+                                No fixed width/height here.
+                                The black hall will automatically resize
+                                according to the actual seat grid.
+                            -->
+
+                            <StackPane
+                                    alignment="CENTER"
+                                    style="
+                                        -fx-background-color:
+                                            linear-gradient(to bottom,
+                                                #171717 0%,
+                                                #202020 35%,
+                                                #111111 100%);
+                                        -fx-background-radius:18;
+                                        -fx-border-color:#303030;
+                                        -fx-border-width:1;
+                                        -fx-border-radius:18;
+                                        -fx-padding:28;
+                                        -fx-effect:
+                                            dropshadow(gaussian,
+                                                rgba(0,0,0,0.35),
+                                                18,0,0,6);
+                                    ">
+
+                                <!-- SEATS -->
+
+                                <GridPane
+                                        fx:id="seatPane"
+                                        alignment="CENTER"
+                                        hgap="11.0"
+                                        vgap="14.0"/>
+
+                            </StackPane>
+
+
+                            <!-- ================================================= -->
+                            <!-- LEGEND -->
+                            <!-- ================================================= -->
+
+                            <Separator/>
+
+
+                            <HBox
+                                    alignment="CENTER"
+                                    spacing="25.0">
+
+
+                                <!-- STANDARD -->
+
+                                <HBox
+                                        alignment="CENTER"
+                                        spacing="7.0">
+
+                                    <Region
+                                            prefWidth="19.0"
+                                            prefHeight="19.0"
+                                            style="-fx-background-color:white;
+                                                   -fx-border-color:#777777;
+                                                   -fx-border-width:1;
+                                                   -fx-border-radius:5;
+                                                   -fx-background-radius:5;"/>
+
+                                    <Label
+                                            text="Standard"
+                                            style="-fx-font-size:12px;
+                                                   -fx-text-fill:#555555;"/>
+
+                                </HBox>
+
+
+                                <!-- VIP -->
+
+                                <HBox
+                                        alignment="CENTER"
+                                        spacing="7.0">
+
+                                    <Region
+                                            prefWidth="19.0"
+                                            prefHeight="19.0"
+                                            style="-fx-background-color:#9C27B0;
+                                                   -fx-background-radius:5;"/>
+
+                                    <Label
+                                            text="VIP"
+                                            style="-fx-font-size:12px;
+                                                   -fx-font-weight:bold;
+                                                   -fx-text-fill:#555555;"/>
+
+                                </HBox>
+
+
+                                <!-- SELECTED -->
+
+                                <HBox
+                                        alignment="CENTER"
+                                        spacing="7.0">
+
+                                    <Region
+                                            prefWidth="19.0"
+                                            prefHeight="19.0"
+                                            style="-fx-background-color:#4CAF50;
+                                                   -fx-background-radius:5;"/>
+
+                                    <Label
+                                            text="Selected"
+                                            style="-fx-font-size:12px;
+                                                   -fx-text-fill:#555555;"/>
+
+                                </HBox>
+
+
+                                <!-- BOOKED -->
+
+                                <HBox
+                                        alignment="CENTER"
+                                        spacing="7.0">
+
+                                    <Region
+                                            prefWidth="19.0"
+                                            prefHeight="19.0"
+                                            style="-fx-background-color:#BDBDBD;
+                                                   -fx-background-radius:5;"/>
+
+                                    <Label
+                                            text="Booked"
+                                            style="-fx-font-size:12px;
+                                                   -fx-text-fill:#555555;"/>
+
+                                </HBox>
+
+                            </HBox>
+
+
+                            <HBox
+                                    alignment="CENTER_LEFT"
+                                    style="-fx-background-color:#F5F7F6;
+                                           -fx-background-radius:8;
+                                           -fx-padding:11 14 11 14;">
+
+                                <Label
+                                        fx:id="lblSelectedSeats"
+                                        text="Selected seats: None"
+                                        wrapText="true"
+                                        style="-fx-font-size:13px;
+                                               -fx-font-weight:bold;
+                                               -fx-text-fill:#333333;"/>
+
+                            </HBox>
+
+                        </VBox>
+
+
+                        <!-- ================================================= -->
+                        <!-- INVOICE CARD -->
+                        <!-- ================================================= -->
+
+                        <VBox
+                                prefWidth="400.0"
+                                minWidth="330.0"
+                                spacing="13.0"
+                                style="-fx-background-color:white;
+                                       -fx-background-radius:12;
+                                       -fx-padding:24;
+                                       -fx-border-color:#E1E1E1;
+                                       -fx-border-radius:12;">
+
+                            <HBox
+                                    alignment="CENTER_LEFT">
+
+                                <VBox
+                                        spacing="2.0">
+
+                                    <Label
+                                            text="Booking Summary"
+                                            style="-fx-font-size:22px;
+                                                   -fx-font-weight:bold;
+                                                   -fx-text-fill:#222222;"/>
+
+                                    <Label
+                                            text="Invoice details"
+                                            style="-fx-font-size:12px;
+                                                   -fx-text-fill:#888888;"/>
+
+                                </VBox>
+
+                                <Region
+                                        HBox.hgrow="ALWAYS"/>
+
+                                <Label
+                                        text="INVOICE"
+                                        style="-fx-text-fill:#2E7D32;
+                                               -fx-font-size:11px;
+                                               -fx-font-weight:bold;"/>
+
+                            </HBox>
+
+
+                            <Separator/>
+
+
+                            <!-- INVOICE DETAILS -->
+
+                            <GridPane
+                                    hgap="15.0"
+                                    vgap="11.0">
+
+                                <Label
+                                        text="Customer"
+                                        style="-fx-font-size:12px;
+                                               -fx-font-weight:bold;
+                                               -fx-text-fill:#777777;"
+                                        GridPane.columnIndex="0"
+                                        GridPane.rowIndex="0"/>
+
+                                <Label
+                                        fx:id="lblInvoiceCustomer"
+                                        text="-"
+                                        wrapText="true"
+                                        GridPane.columnIndex="1"
+                                        GridPane.rowIndex="0"/>
+
+
+                                <Label
+                                        text="Employee"
+                                        style="-fx-font-size:12px;
+                                               -fx-font-weight:bold;
+                                               -fx-text-fill:#777777;"
+                                        GridPane.columnIndex="0"
+                                        GridPane.rowIndex="1"/>
+
+                                <Label
+                                        fx:id="lblInvoiceEmployee"
+                                        text="-"
+                                        wrapText="true"
+                                        GridPane.columnIndex="1"
+                                        GridPane.rowIndex="1"/>
+
+
+                                <Label
+                                        text="Movie"
+                                        style="-fx-font-size:12px;
+                                               -fx-font-weight:bold;
+                                               -fx-text-fill:#777777;"
+                                        GridPane.columnIndex="0"
+                                        GridPane.rowIndex="2"/>
+
+                                <Label
+                                        fx:id="lblInvoiceMovie"
+                                        text="-"
+                                        wrapText="true"
+                                        GridPane.columnIndex="1"
+                                        GridPane.rowIndex="2"/>
+
+
+                                <Label
+                                        text="Cinema"
+                                        style="-fx-font-size:12px;
+                                               -fx-font-weight:bold;
+                                               -fx-text-fill:#777777;"
+                                        GridPane.columnIndex="0"
+                                        GridPane.rowIndex="3"/>
+
+                                <Label
+                                        fx:id="lblInvoiceCinema"
+                                        text="-"
+                                        wrapText="true"
+                                        GridPane.columnIndex="1"
+                                        GridPane.rowIndex="3"/>
+
+
+                                <Label
+                                        text="Hall"
+                                        style="-fx-font-size:12px;
+                                               -fx-font-weight:bold;
+                                               -fx-text-fill:#777777;"
+                                        GridPane.columnIndex="0"
+                                        GridPane.rowIndex="4"/>
+
+                                <Label
+                                        fx:id="lblInvoiceHall"
+                                        text="-"
+                                        wrapText="true"
+                                        GridPane.columnIndex="1"
+                                        GridPane.rowIndex="4"/>
+
+
+                                <Label
+                                        text="Show"
+                                        style="-fx-font-size:12px;
+                                               -fx-font-weight:bold;
+                                               -fx-text-fill:#777777;"
+                                        GridPane.columnIndex="0"
+                                        GridPane.rowIndex="5"/>
+
+                                <Label
+                                        fx:id="lblInvoiceShow"
+                                        text="-"
+                                        wrapText="true"
+                                        GridPane.columnIndex="1"
+                                        GridPane.rowIndex="5"/>
+
+
+                                <Label
+                                        text="Date"
+                                        style="-fx-font-size:12px;
+                                               -fx-font-weight:bold;
+                                               -fx-text-fill:#777777;"
+                                        GridPane.columnIndex="0"
+                                        GridPane.rowIndex="6"/>
+
+                                <Label
+                                        fx:id="lblInvoiceDate"
+                                        text="-"
+                                        wrapText="true"
+                                        GridPane.columnIndex="1"
+                                        GridPane.rowIndex="6"/>
+
+
+                                <Label
+                                        text="Seats"
+                                        style="-fx-font-size:12px;
+                                               -fx-font-weight:bold;
+                                               -fx-text-fill:#777777;"
+                                        GridPane.columnIndex="0"
+                                        GridPane.rowIndex="7"/>
+
+                                <Label
+                                        fx:id="lblInvoiceSeats"
+                                        text="-"
+                                        wrapText="true"
+                                        GridPane.columnIndex="1"
+                                        GridPane.rowIndex="7"/>
+
+
+                                <Label
+                                        text="Tickets"
+                                        style="-fx-font-size:12px;
+                                               -fx-font-weight:bold;
+                                               -fx-text-fill:#777777;"
+                                        GridPane.columnIndex="0"
+                                        GridPane.rowIndex="8"/>
+
+                                <Label
+                                        fx:id="lblInvoiceTickets"
+                                        text="0"
+                                        GridPane.columnIndex="1"
+                                        GridPane.rowIndex="8"/>
+
+                            </GridPane>
+
+
+                            <!-- SNACKS -->
+
+                            <Separator/>
+
+                            <Label
+                                    text="🍿 Snacks"
+                                    style="-fx-font-size:17px;
+                                           -fx-font-weight:bold;
+                                           -fx-text-fill:#222222;"/>
+
+
+                            <VBox
+                                    fx:id="snacksPane"
+                                    spacing="8.0"
+                                    style="-fx-background-color:#FAFAFA;
+                                           -fx-background-radius:8;
+                                           -fx-padding:10;"/>
+
+
+                            <!-- TOTAL -->
+
+                            <Separator/>
+
+                            <HBox
+                                    alignment="CENTER_LEFT"
+                                    spacing="10.0">
+
+                                <VBox
+                                        spacing="2.0">
+
+                                    <Label
+                                            text="TOTAL"
+                                            style="-fx-font-size:11px;
+                                                   -fx-font-weight:bold;
+                                                   -fx-text-fill:#888888;"/>
+
+                                    <Label
+                                            text="Final Amount"
+                                            style="-fx-font-size:13px;
+                                                   -fx-text-fill:#444444;"/>
+
+                                </VBox>
+
+                                <Region
+                                        HBox.hgrow="ALWAYS"/>
+
+                                <Label
+                                        fx:id="lblInvoiceTotal"
+                                        text="0.00 $"
+                                        style="-fx-font-size:23px;
+                                               -fx-font-weight:bold;
+                                               -fx-text-fill:#2E7D32;"/>
+
+                            </HBox>
+
+
+                            <!-- SAVE -->
+
+                            <Button
+                                    fx:id="btnSave"
+                                    onAction="#handleSave"
+                                    text="✓  Save Booking"
+                                    maxWidth="Infinity"
+                                    prefHeight="47.0"
+                                    style="-fx-background-color:#2E7D32;
+                                           -fx-text-fill:white;
+                                           -fx-font-size:15px;
+                                           -fx-font-weight:bold;
+                                           -fx-background-radius:8;
+                                           -fx-cursor:hand;"/>
+
+
+                            <!-- PRINT + EMAIL -->
+
+                            <HBox
+                                    spacing="10.0"
+                                    alignment="CENTER"
+                                    style="-fx-padding:2 0 0 0;">
+
+                                <Button
+                                        fx:id="btnPrint"
+                                        onAction="#handlePrint"
+                                        text="🖨   Print"
+                                        HBox.hgrow="ALWAYS"
+                                        maxWidth="Infinity"
+                                        prefHeight="45.0"
+                                        style="-fx-background-color:#292929;
+                                               -fx-text-fill:white;
+                                               -fx-font-size:13px;
+                                               -fx-font-weight:bold;
+                                               -fx-background-radius:8;
+                                               -fx-border-color:#3F3F3F;
+                                               -fx-border-radius:8;
+                                               -fx-cursor:hand;"/>
+
+
+                                <Button
+                                        fx:id="btnEmail"
+                                        onAction="#handleEmail"
+                                        text="✉   Email"
+                                        HBox.hgrow="ALWAYS"
+                                        maxWidth="Infinity"
+                                        prefHeight="45.0"
+                                        style="-fx-background-color:#1976D2;
+                                               -fx-text-fill:white;
+                                               -fx-font-size:13px;
+                                               -fx-font-weight:bold;
+                                               -fx-background-radius:8;
+                                               -fx-border-color:#1565C0;
+                                               -fx-border-radius:8;
+                                               -fx-cursor:hand;"/>
+
+                            </HBox>
+
+                        </VBox>
+
+                    </FlowPane>
+
+                </VBox>
+
+            </content>
+
+        </ScrollPane>
+
+    </center>
+
+</BorderPane>

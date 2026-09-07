@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<BorderPane minHeight="600.0" minWidth="850.0" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: linear-gradient(to bottom right, #080808, #151515, #090909);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinemasystem.controller.LoginController">
+
+    <!-- ========================================================= -->
+    <!-- HEADER -->
+    <!-- ========================================================= -->
+
+    <top>
+
+        <VBox alignment="CENTER" maxWidth="Infinity" spacing="5.0">
+
+            <padding>
+                <Insets bottom="12.0" left="30.0" right="30.0" top="20.0" />
+            </padding>
+
+            <Label style="                     -fx-font-size: 36px;                     -fx-font-weight: bold;                     -fx-letter-spacing: 3px;                 " text="LEBANON CINEMA" textFill="white" />
+
+            <Label style="                     -fx-font-size: 17px;                     -fx-font-weight: bold;                     -fx-letter-spacing: 4px;                 " text="BOOKING SYSTEM" textFill="#e52b2b" />
+
+            <Label style="                     -fx-font-size: 13px;                     -fx-font-style: italic;                 " text="Multi-Branch Cinema Management System" textFill="#888888" />
+
+        </VBox>
+
+    </top>
+
+
+    <!-- ========================================================= -->
+    <!-- CENTER -->
+    <!-- ========================================================= -->
+
+    <center>
+
+        <GridPane alignment="CENTER" hgap="38.0" maxHeight="Infinity" maxWidth="Infinity" vgap="15.0">
+
+            <padding>
+                <Insets bottom="20.0" left="45.0" right="45.0" top="8.0" />
+            </padding>
+
+
+            <columnConstraints>
+
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="430.0" percentWidth="64.0" />
+
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="320.0" percentWidth="36.0" />
+
+            </columnConstraints>
+
+
+            <rowConstraints>
+
+                <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+
+            </rowConstraints>
+
+
+            <!-- ================================================= -->
+            <!-- POSTER -->
+            <!-- ================================================= -->
+
+            <StackPane alignment="CENTER" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+
+                <!-- Outer poster frame -->
+
+                <Rectangle arcHeight="24.0" arcWidth="24.0" fill="#0d0d0d" height="415.0" stroke="#303030" strokeWidth="1.5" style="                         -fx-effect: dropshadow(                             gaussian,                             rgba(0,0,0,0.65),                             25,                             0.25,                             0,                             8                         );                     " width="650.0" />
+
+
+                <!-- Poster -->
+
+                <ImageView fx:id="imgPoster" fitHeight="399.0" fitWidth="637.0" pickOnBounds="true" preserveRatio="false" smooth="true">
+
+                    <image>
+                        <Image url="@../images/poster.png" />
+                    </image>
+
+                </ImageView>
+
+
+                <!-- Slight dark overlay -->
+
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="550.0" mouseTransparent="true" opacity="0.2" stroke="BLACK" strokeType="INSIDE" width="730.0" />
+
+
+                <!-- Small cinema badge -->
+
+                <VBox alignment="TOP_LEFT" maxHeight="395.0" maxWidth="630.0" mouseTransparent="true">
+
+                    <padding>
+                        <Insets bottom="20.0" left="25.0" right="20.0" top="22.0" />
+                    </padding>
+
+                </VBox>
+
+            </StackPane>
+
+
+            <!-- ================================================= -->
+            <!-- LOGIN CARD -->
+            <!-- ================================================= -->
+
+            <StackPane alignment="CENTER" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+
+                <!-- Card background -->
+
+                <Rectangle arcHeight="24.0" arcWidth="24.0" fill="#151515" height="425.0" stroke="#303030" strokeWidth="1.2" style="                         -fx-effect: dropshadow(                             gaussian,                             rgba(0,0,0,0.75),                             30,                             0.25,                             0,                             10                         );                     " width="355.0" />
+
+
+                <VBox alignment="CENTER" maxWidth="300.0" prefWidth="300.0" spacing="15.0">
+
+                    <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    </padding>
+
+
+                    <!-- Red accent -->
+
+                    <Rectangle arcHeight="4.0" arcWidth="4.0" fill="#e52b2b" height="4.0" width="45.0" />
+
+
+                    <!-- Title -->
+
+                    <Label style="                             -fx-font-size: 29px;                             -fx-font-weight: bold;                         " text="Welcome Back" textFill="white" />
+
+                    <Label style="                             -fx-font-size: 14px;                         " text="Sign in to continue" textFill="#888888" />
+
+
+                    <!-- ================================================= -->
+                    <!-- USERNAME -->
+                    <!-- ================================================= -->
+
+                    <VBox maxWidth="Infinity" spacing="6.0">
+
+                        <Label style="                                 -fx-font-size: 11px;                                 -fx-font-weight: bold;                                 -fx-letter-spacing: 1.5px;                             " text="USERNAME" textFill="#bbbbbb" />
+
+                        <TextField fx:id="txtUsername" maxWidth="Infinity" prefHeight="44.0" promptText="Enter your username" style="                                 -fx-background-color: #202020;                                 -fx-text-fill: white;                                 -fx-prompt-text-fill: #707070;                                 -fx-background-radius: 8px;                                 -fx-border-radius: 8px;                                 -fx-border-color: #353535;                                 -fx-border-width: 1px;                                 -fx-padding: 0 14 0 14;                                 -fx-font-size: 14px;                             " />
+
+                    </VBox>
+
+
+                    <!-- ================================================= -->
+                    <!-- PASSWORD -->
+                    <!-- ================================================= -->
+
+                    <VBox maxWidth="Infinity" spacing="6.0">
+
+                        <Label style="                                 -fx-font-size: 11px;                                 -fx-font-weight: bold;                                 -fx-letter-spacing: 1.5px;                             " text="PASSWORD" textFill="#bbbbbb" />
+
+                        <PasswordField fx:id="txtPassword" maxWidth="Infinity" prefHeight="44.0" promptText="Enter your password" style="                                 -fx-background-color: #202020;                                 -fx-text-fill: white;                                 -fx-prompt-text-fill: #707070;                                 -fx-background-radius: 8px;                                 -fx-border-radius: 8px;                                 -fx-border-color: #353535;                                 -fx-border-width: 1px;                                 -fx-padding: 0 14 0 14;                                 -fx-font-size: 14px;                             " />
+
+                    </VBox>
+
+
+                    <!-- ================================================= -->
+                    <!-- LOGIN -->
+                    <!-- ================================================= -->
+
+                    <Button fx:id="btnLogin" maxWidth="Infinity" onAction="#handleLogin" prefHeight="48.0" style="                             -fx-background-color: #e52b2b;                             -fx-background-radius: 8px;                             -fx-font-size: 15px;                             -fx-font-weight: bold;                             -fx-letter-spacing: 2px;                             -fx-cursor: hand;                         " text="LOGIN" textFill="white" />
+
+
+                    <Label style="                             -fx-font-size: 11px;                         " text="Authorized employees only" textFill="#5f5f5f" />
+
+                </VBox>
+
+            </StackPane>
+
+        </GridPane>
+
+    </center>
+
+
+    <!-- ========================================================= -->
+    <!-- FOOTER -->
+    <!-- ========================================================= -->
+
+    <bottom>
+
+        <VBox alignment="CENTER" maxWidth="Infinity">
+
+            <padding>
+                <Insets bottom="12.0" left="20.0" right="20.0" top="5.0" />
+            </padding>
+
+            <Label style="                     -fx-font-size: 11px;                 " text="© Lebanon Cinema Booking System" textFill="#555555" />
+
+        </VBox>
+
+    </bottom>
+
+</BorderPane>

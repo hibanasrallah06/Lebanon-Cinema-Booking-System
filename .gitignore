@@ -1,0 +1,26 @@
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/build/
+/dist/
+
+# Java
+*.class
+*.log
+hs_err_pid*
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Local runtime / installers
+/cinema-runtime/
+/installer/
+/app/
+
+# Local secrets/config
+.env
+*.env

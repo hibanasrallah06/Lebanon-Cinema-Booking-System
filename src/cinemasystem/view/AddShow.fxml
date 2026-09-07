@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane
+        prefWidth="500.0"
+        prefHeight="500.0"
+        minWidth="400.0"
+        minHeight="550.0"
+        style="-fx-background-color:#f5f5f5;"
+        xmlns="http://javafx.com/javafx/26"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="cinemasystem.controller.AddShowController">
+
+    <children>
+
+        <!-- Header -->
+        <VBox
+                AnchorPane.topAnchor="0.0"
+                AnchorPane.leftAnchor="0.0"
+                AnchorPane.rightAnchor="0.0"
+                spacing="5.0"
+                style="-fx-padding:30 40 15 40;">
+
+            <Label
+                    text="Add New Show"
+                    style="-fx-font-size:26px;
+                           -fx-font-weight:bold;
+                           -fx-text-fill:#222222;"/>
+
+            <Label
+                    text="Create a new show and configure its schedule"
+                    style="-fx-font-size:13px;
+                           -fx-text-fill:#777777;"/>
+        </VBox>
+
+
+        <!-- Scrollable Form -->
+        <ScrollPane
+                fitToWidth="true"
+                hbarPolicy="NEVER"
+                vbarPolicy="AS_NEEDED"
+                AnchorPane.topAnchor="105.0"
+                AnchorPane.leftAnchor="0.0"
+                AnchorPane.rightAnchor="0.0"
+                AnchorPane.bottomAnchor="95.0"
+                style="-fx-background-color:transparent;
+                       -fx-background-insets:0;">
+
+            <content>
+
+                <VBox
+                        spacing="8.0"
+                        fillWidth="true"
+                        style="-fx-padding:0 40 20 40;">
+
+                    <!-- Movie -->
+                    <Label
+                            text="Movie"
+                            style="-fx-font-size:14px;
+                                   -fx-font-weight:bold;
+                                   -fx-text-fill:#222222;"/>
+
+                    <ComboBox
+                            fx:id="cmbMovie"
+                            editable="true"
+                            maxWidth="Infinity"
+                            prefHeight="40.0"
+                            promptText="Select movie..."
+                            style="-fx-background-radius:6px;
+                                   -fx-border-radius:6px;
+                                   -fx-border-color:#cccccc;"/>
+
+
+                    <!-- Hall -->
+                    <Label
+                            text="Hall"
+                            style="-fx-font-size:14px;
+                                   -fx-font-weight:bold;
+                                   -fx-text-fill:#222222;
+                                   -fx-padding:8 0 0 0;"/>
+
+                    <ComboBox
+                            fx:id="cmbHall"
+                            maxWidth="Infinity"
+                            prefHeight="40.0"
+                            promptText="Select hall..."
+                            style="-fx-background-radius:6px;
+                                   -fx-border-radius:6px;
+                                   -fx-border-color:#cccccc;"/>
+
+
+                    <!-- Show Date -->
+                    <Label
+                            text="Show Date"
+                            style="-fx-font-size:14px;
+                                   -fx-font-weight:bold;
+                                   -fx-text-fill:#222222;
+                                   -fx-padding:8 0 0 0;"/>
+
+                    <DatePicker
+                            fx:id="dateShow"
+                            maxWidth="Infinity"
+                            prefHeight="40.0"/>
+
+
+                    <!-- Start Time -->
+                    <Label
+                            text="Start Time"
+                            style="-fx-font-size:14px;
+                                   -fx-font-weight:bold;
+                                   -fx-text-fill:#222222;
+                                   -fx-padding:8 0 0 0;"/>
+
+                    <ComboBox
+                            fx:id="cmbStartTime"
+                            maxWidth="Infinity"
+                            prefHeight="40.0"
+                            promptText="Select start time..."
+                            style="-fx-background-radius:6px;
+                                   -fx-border-radius:6px;
+                                   -fx-border-color:#cccccc;"/>
+
+
+                    <!-- End Time -->
+                    <Label
+                            text="End Time"
+                            style="-fx-font-size:14px;
+                                   -fx-font-weight:bold;
+                                   -fx-text-fill:#222222;
+                                   -fx-padding:8 0 0 0;"/>
+
+                    <ComboBox
+                            fx:id="cmbEndTime"
+                            maxWidth="Infinity"
+                            prefHeight="40.0"
+                            promptText="Select end time..."
+                            style="-fx-background-radius:6px;
+                                   -fx-border-radius:6px;
+                                   -fx-border-color:#cccccc;"/>
+
+
+                    <!-- Ticket Price -->
+                    <Label
+                            text="Ticket Price"
+                            style="-fx-font-size:14px;
+                                   -fx-font-weight:bold;
+                                   -fx-text-fill:#222222;
+                                   -fx-padding:8 0 0 0;"/>
+
+                    <TextField
+                            fx:id="txtTicketPrice"
+                            maxWidth="Infinity"
+                            prefHeight="40.0"
+                            promptText="Example: 8.00"
+                            style="-fx-background-radius:6px;
+                                   -fx-border-radius:6px;
+                                   -fx-border-color:#cccccc;
+                                   -fx-padding:8px;"/>
+
+                </VBox>
+
+            </content>
+
+        </ScrollPane>
+
+
+        <!-- Bottom Buttons -->
+        <HBox
+                spacing="20.0"
+                AnchorPane.leftAnchor="40.0"
+                AnchorPane.rightAnchor="40.0"
+                AnchorPane.bottomAnchor="25.0">
+
+            <Button
+                    text="Add Show"
+                    onAction="#handleSave"
+                    maxWidth="Infinity"
+                    prefHeight="42.0"
+                    HBox.hgrow="ALWAYS"
+                    style="-fx-background-color:#2E7D32;
+                           -fx-text-fill:white;
+                           -fx-font-size:14px;
+                           -fx-font-weight:bold;
+                           -fx-background-radius:6px;
+                           -fx-cursor:hand;"/>
+
+            <Button
+                    text="Cancel"
+                    onAction="#handleCancel"
+                    maxWidth="Infinity"
+                    prefHeight="42.0"
+                    HBox.hgrow="ALWAYS"
+                    style="-fx-background-color:#dddddd;
+                           -fx-text-fill:#333333;
+                           -fx-font-size:14px;
+                           -fx-font-weight:bold;
+                           -fx-background-radius:6px;
+                           -fx-cursor:hand;"/>
+
+        </HBox>
+
+    </children>
+
+</AnchorPane>

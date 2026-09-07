@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/26"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="cinemasystem.controller.AddEmployeeController"
+      spacing="22"
+      prefWidth="650"
+      prefHeight="560"
+      style="-fx-background-color:#ECECEC;
+             -fx-padding:35 40 35 40;">
+
+    <Label text="Add Employee"
+           style="-fx-font-size:36px;
+                  -fx-font-weight:bold;
+                  -fx-text-fill:#26384A;"/>
+
+    <GridPane hgap="18"
+              vgap="18">
+
+        <!-- Full Name -->
+        <Label text="Full Name:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="0"
+               style="-fx-font-size:17px;"/>
+
+        <TextField fx:id="txtFullName"
+                   promptText="Full name"
+                   prefHeight="48"
+                   prefWidth="390"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="0"/>
+
+
+        <!-- Email -->
+        <Label text="Email:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="1"
+               style="-fx-font-size:17px;"/>
+
+        <TextField fx:id="txtEmail"
+                   promptText="Email address"
+                   prefHeight="48"
+                   prefWidth="390"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="1"/>
+
+
+        <!-- Phone -->
+        <Label text="Phone:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="2"
+               style="-fx-font-size:17px;"/>
+
+        <TextField fx:id="txtPhone"
+                   promptText="Phone number"
+                   prefHeight="48"
+                   prefWidth="390"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="2"/>
+
+
+        <!-- Username -->
+        <Label text="Username:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="3"
+               style="-fx-font-size:17px;"/>
+
+        <TextField fx:id="txtUsername"
+                   promptText="Username"
+                   prefHeight="48"
+                   prefWidth="390"
+                   GridPane.columnIndex="1"
+                   GridPane.rowIndex="3"/>
+
+
+        <!-- Password -->
+        <Label text="Password:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="4"
+               style="-fx-font-size:17px;"/>
+
+        <PasswordField fx:id="txtPassword"
+                       promptText="Password"
+                       prefHeight="48"
+                       prefWidth="390"
+                       GridPane.columnIndex="1"
+                       GridPane.rowIndex="4"/>
+
+
+        <!-- Role -->
+        <Label text="Role:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="5"
+               style="-fx-font-size:17px;"/>
+
+        <ComboBox fx:id="cmbRole"
+                  promptText="Select Role"
+                  prefHeight="48"
+                  prefWidth="390"
+                  GridPane.columnIndex="1"
+                  GridPane.rowIndex="5"/>
+
+
+        <!-- Cinema -->
+        <Label text="Cinema:"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="6"
+               style="-fx-font-size:17px;"/>
+
+        <ComboBox fx:id="cmbCinema"
+                  promptText="Select Cinema"
+                  prefHeight="48"
+                  prefWidth="390"
+                  GridPane.columnIndex="1"
+                  GridPane.rowIndex="6"/>
+
+    </GridPane>
+
+    <HBox spacing="20"
+          alignment="CENTER">
+
+        <Button text="Save"
+                onAction="#handleSave"
+                prefWidth="170"
+                prefHeight="52"
+                style="-fx-background-color:#2E7D32;
+                       -fx-text-fill:white;
+                       -fx-font-size:17px;
+                       -fx-font-weight:bold;"/>
+
+        <Button text="Cancel"
+                onAction="#handleCancel"
+                prefWidth="170"
+                prefHeight="52"
+                style="-fx-font-size:17px;"/>
+
+    </HBox>
+
+</VBox>

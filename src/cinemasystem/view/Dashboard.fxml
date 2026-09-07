@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<StackPane
+    xmlns="http://javafx.com/javafx/26"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="cinemasystem.controller.DashboardController"
+    style="-fx-background-color:#F5F5F5;">
+
+    <!-- ===================================================== -->
+    <!-- MAIN DASHBOARD -->
+    <!-- ===================================================== -->
+
+    <BorderPane
+        style="-fx-background-color:#F5F5F5;">
+
+        <!-- ===================================================== -->
+        <!-- TOP HEADER -->
+        <!-- ===================================================== -->
+
+        <top>
+
+            <HBox
+                alignment="CENTER_LEFT"
+                prefHeight="86"
+                minHeight="86"
+                spacing="20"
+                style="
+                    -fx-background-color:
+                        linear-gradient(
+                            to bottom right,
+                            #080808,
+                            #151515,
+                            #090909
+                        );
+                    -fx-padding:0 38 0 38;
+                    -fx-border-color:#252525;
+                    -fx-border-width:0 0 1 0;
+                ">
+
+                <Label
+                    text="🎬"
+                    style="
+                        -fx-font-size:32px;
+                        -fx-text-fill:#F4C542;
+                    "/>
+
+                <Label
+                    text="Lebanon Cinema"
+                    style="
+                        -fx-text-fill:white;
+                        -fx-font-size:29px;
+                        -fx-font-weight:bold;
+                    "/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <VBox
+                    alignment="CENTER_RIGHT"
+                    spacing="3">
+
+                    <Label
+                        text="Welcome back"
+                        style="
+                            -fx-text-fill:#9CA3AF;
+                            -fx-font-size:14px;
+                        "/>
+
+                    <Label
+                        fx:id="lblWelcome"
+                        text="Welcome"
+                        style="
+                            -fx-text-fill:white;
+                            -fx-font-size:18px;
+                            -fx-font-weight:bold;
+                        "/>
+
+                </VBox>
+
+                <Label
+                    text="👤"
+                    alignment="CENTER"
+                    minWidth="52"
+                    minHeight="52"
+                    prefWidth="52"
+                    prefHeight="52"
+                    style="
+                        -fx-background-color:#292F3D;
+                        -fx-background-radius:50;
+                        -fx-text-fill:white;
+                        -fx-font-size:23px;
+                    "/>
+
+            </HBox>
+
+        </top>
+
+
+        <!-- ===================================================== -->
+        <!-- LEFT SIDEBAR -->
+        <!-- ===================================================== -->
+
+        <left>
+
+            <VBox
+                prefWidth="245"
+                minWidth="225"
+                fillWidth="true"
+                spacing="8"
+                style="
+                    -fx-background-color:
+                        linear-gradient(
+                            to bottom right,
+                            #080808,
+                            #151515,
+                            #090909
+                        );
+                    -fx-padding:28 18 24 18;
+                ">
+
+                <Label
+                    text="MAIN MENU"
+                    style="
+                        -fx-text-fill:#777777;
+                        -fx-font-size:12px;
+                        -fx-font-weight:bold;
+                        -fx-padding:0 0 12 10;
+                    "/>
+
+                <Button
+                    fx:id="btnMovie"
+                    onAction="#handleMovies"
+                    maxWidth="Infinity"
+                    prefHeight="52"
+                    text="🎬   Movies"
+                    alignment="CENTER_LEFT"
+                    style="
+                        -fx-background-color:transparent;
+                        -fx-text-fill:#E8E8E8;
+                        -fx-font-size:16px;
+                        -fx-font-weight:bold;
+                        -fx-padding:0 15 0 15;
+                        -fx-background-radius:10;
+                        -fx-cursor:hand;
+                    "/>
+
+                <Button
+                    fx:id="btnShow"
+                    onAction="#handleShows"
+                    maxWidth="Infinity"
+                    prefHeight="52"
+                    text="🎟   Shows"
+                    alignment="CENTER_LEFT"
+                    style="
+                        -fx-background-color:transparent;
+                        -fx-text-fill:#E8E8E8;
+                        -fx-font-size:16px;
+                        -fx-font-weight:bold;
+                        -fx-padding:0 15 0 15;
+                        -fx-background-radius:10;
+                        -fx-cursor:hand;
+                    "/>
+
+                <Button
+                    fx:id="btnCinema"
+                    onAction="#handleCinemas"
+                    maxWidth="Infinity"
+                    prefHeight="52"
+                    text="🏢   Cinemas"
+                    alignment="CENTER_LEFT"
+                    style="
+                        -fx-background-color:transparent;
+                        -fx-text-fill:#E8E8E8;
+                        -fx-font-size:16px;
+                        -fx-font-weight:bold;
+                        -fx-padding:0 15 0 15;
+                        -fx-background-radius:10;
+                        -fx-cursor:hand;
+                    "/>
+
+                <Button
+                    fx:id="btnEmployee"
+                    onAction="#handleEmployees"
+                    maxWidth="Infinity"
+                    prefHeight="52"
+                    text="👥   Employees"
+                    alignment="CENTER_LEFT"
+                    style="
+                        -fx-background-color:transparent;
+                        -fx-text-fill:#E8E8E8;
+                        -fx-font-size:16px;
+                        -fx-font-weight:bold;
+                        -fx-padding:0 15 0 15;
+                        -fx-background-radius:10;
+                        -fx-cursor:hand;
+                    "/>
+
+                <Button
+                    fx:id="btnBooking"
+                    onAction="#handleBooking"
+                    maxWidth="Infinity"
+                    prefHeight="52"
+                    text="🎟   Bookings"
+                    alignment="CENTER_LEFT"
+                    style="
+                        -fx-background-color:transparent;
+                        -fx-text-fill:#E8E8E8;
+                        -fx-font-size:16px;
+                        -fx-font-weight:bold;
+                        -fx-padding:0 15 0 15;
+                        -fx-background-radius:10;
+                        -fx-cursor:hand;
+                    "/>
+
+                <Button
+                    fx:id="btnSnack"
+                    onAction="#handleSnacks"
+                    maxWidth="Infinity"
+                    prefHeight="52"
+                    text="🍿   Snacks"
+                    alignment="CENTER_LEFT"
+                    style="
+                        -fx-background-color:transparent;
+                        -fx-text-fill:#E8E8E8;
+                        -fx-font-size:16px;
+                        -fx-font-weight:bold;
+                        -fx-padding:0 15 0 15;
+                        -fx-background-radius:10;
+                        -fx-cursor:hand;
+                    "/>
+
+                <Button
+                    fx:id="btnReport"
+                    onAction="#handleReports"
+                    maxWidth="Infinity"
+                    prefHeight="52"
+                    text="📊   Reports"
+                    alignment="CENTER_LEFT"
+                    style="
+                        -fx-background-color:transparent;
+                        -fx-text-fill:#E8E8E8;
+                        -fx-font-size:16px;
+                        -fx-font-weight:bold;
+                        -fx-padding:0 15 0 15;
+                        -fx-background-radius:10;
+                        -fx-cursor:hand;
+                    "/>
+
+                <Region VBox.vgrow="ALWAYS"/>
+
+                <Button
+                    fx:id="btnLogout"
+                    onAction="#handleLogout"
+                    maxWidth="Infinity"
+                    prefHeight="55"
+                    text="🚪   Logout"
+                    alignment="CENTER_LEFT"
+                    style="
+                        -fx-background-color:#3A171B;
+                        -fx-text-fill:#FFB4B4;
+                        -fx-font-size:16px;
+                        -fx-font-weight:bold;
+                        -fx-padding:0 15 0 15;
+                        -fx-background-radius:10;
+                        -fx-cursor:hand;
+                    "/>
+
+            </VBox>
+
+        </left>
+
+
+        <!-- ===================================================== -->
+        <!-- CENTER -->
+        <!-- ===================================================== -->
+
+        <center>
+
+            <ScrollPane
+                fitToWidth="true"
+                hbarPolicy="NEVER"
+                vbarPolicy="AS_NEEDED"
+                style="
+                    -fx-background-color:#F5F6F8;
+                    -fx-border-width:0;
+                ">
+
+                <content>
+
+                    <VBox
+                        fillWidth="true"
+                        spacing="30"
+                        style="
+                            -fx-background-color:#F5F6F8;
+                            -fx-padding:12 45 45 45;
+                        ">
+
+                        <!-- ================================================= -->
+                        <!-- PAGE TITLE -->
+                        <!-- ================================================= -->
+
+                        <VBox spacing="6">
+
+                            <Label
+                                text="Dashboard"
+                                style="
+                                    -fx-text-fill:#080808;
+                                    -fx-font-size:34px;
+                                    -fx-font-weight:bold;
+                                "/>
+
+                            <Label
+                                text="Manage your cinema operations from one place."
+                                style="
+                                    -fx-text-fill:#718096;
+                                    -fx-font-size:16px;
+                                "/>
+
+                        </VBox>
+
+
+                        <!-- ================================================= -->
+                        <!-- STATISTICS -->
+                        <!-- ================================================= -->
+
+                        <FlowPane
+                            alignment="TOP_LEFT"
+                            hgap="15"
+                            vgap="15"
+                            prefWrapLength="1200"
+                            maxWidth="Infinity"
+                            minWidth="0">
+
+                            <!-- MOVIES -->
+
+                            <VBox
+                                prefWidth="220"
+                                minWidth="210"
+                                maxWidth="220"
+                                prefHeight="155"
+                                minHeight="155"
+                                maxHeight="155"
+                                alignment="CENTER_LEFT"
+                                style="
+                                    -fx-background-color:white;
+                                    -fx-background-radius:18;
+                                    -fx-padding:22;
+                                    -fx-effect:
+                                        dropshadow(
+                                            gaussian,
+                                            rgba(0,0,0,0.10),
+                                            12,
+                                            0,
+                                            0,
+                                            4
+                                        );
+                                ">
+
+                                <HBox
+                                    alignment="CENTER_LEFT"
+                                    spacing="14">
+
+                                    <Label
+                                        text="🎬"
+                                        alignment="CENTER"
+                                        minWidth="52"
+                                        minHeight="52"
+                                        prefWidth="52"
+                                        prefHeight="52"
+                                        style="
+                                            -fx-background-color:#FFF0B8;
+                                            -fx-background-radius:15;
+                                            -fx-font-size:23px;
+                                        "/>
+
+                                    <Label
+                                        text="Movies"
+                                        style="
+                                            -fx-text-fill:#64748B;
+                                            -fx-font-size:18px;
+                                            -fx-font-weight:bold;
+                                        "/>
+
+                                </HBox>
+
+                                <Region VBox.vgrow="ALWAYS"/>
+
+                                <Label
+                                    fx:id="lblMovieCount"
+                                    text="0"
+                                    style="
+                                        -fx-text-fill:#080808;
+                                        -fx-font-size:38px;
+                                        -fx-font-weight:bold;
+                                    "/>
+
+                            </VBox>
+
+
+                            <!-- SHOWS -->
+
+                            <VBox
+                                prefWidth="220"
+                                minWidth="210"
+                                maxWidth="220"
+                                prefHeight="155"
+                                minHeight="155"
+                                maxHeight="155"
+                                alignment="CENTER_LEFT"
+                                style="
+                                    -fx-background-color:white;
+                                    -fx-background-radius:18;
+                                    -fx-padding:22;
+                                    -fx-effect:
+                                        dropshadow(
+                                            gaussian,
+                                            rgba(0,0,0,0.10),
+                                            12,
+                                            0,
+                                            0,
+                                            4
+                                        );
+                                ">
+
+                                <HBox
+                                    alignment="CENTER_LEFT"
+                                    spacing="14">
+
+                                    <Label
+                                        text="🎟"
+                                        alignment="CENTER"
+                                        minWidth="52"
+                                        minHeight="52"
+                                        prefWidth="52"
+                                        prefHeight="52"
+                                        style="
+                                            -fx-background-color:#DDEBFF;
+                                            -fx-background-radius:15;
+                                            -fx-font-size:23px;
+                                        "/>
+
+                                    <Label
+                                        text="Shows"
+                                        style="
+                                            -fx-text-fill:#64748B;
+                                            -fx-font-size:18px;
+                                            -fx-font-weight:bold;
+                                        "/>
+
+                                </HBox>
+
+                                <Region VBox.vgrow="ALWAYS"/>
+
+                                <Label
+                                    fx:id="lblShowCount"
+                                    text="0"
+                                    style="
+                                        -fx-text-fill:#080808;
+                                        -fx-font-size:38px;
+                                        -fx-font-weight:bold;
+                                    "/>
+
+                            </VBox>
+
+
+                            <!-- MY CINEMA -->
+
+                            <VBox
+                                prefWidth="220"
+                                minWidth="210"
+                                maxWidth="220"
+                                prefHeight="155"
+                                minHeight="155"
+                                maxHeight="155"
+                                alignment="CENTER_LEFT"
+                                style="
+                                    -fx-background-color:white;
+                                    -fx-background-radius:18;
+                                    -fx-padding:22;
+                                    -fx-effect:
+                                        dropshadow(
+                                            gaussian,
+                                            rgba(0,0,0,0.10),
+                                            12,
+                                            0,
+                                            0,
+                                            4
+                                        );
+                                ">
+
+                                <HBox
+                                    alignment="CENTER_LEFT"
+                                    spacing="14">
+
+                                    <Label
+                                        text="🏢"
+                                        alignment="CENTER"
+                                        minWidth="52"
+                                        minHeight="52"
+                                        prefWidth="52"
+                                        prefHeight="52"
+                                        style="
+                                            -fx-background-color:#D9F8E5;
+                                            -fx-background-radius:15;
+                                            -fx-font-size:23px;
+                                        "/>
+
+                                    <Label
+                                        text="My Cinema"
+                                        style="
+                                            -fx-text-fill:#64748B;
+                                            -fx-font-size:18px;
+                                            -fx-font-weight:bold;
+                                        "/>
+
+                                </HBox>
+
+                                <Region VBox.vgrow="ALWAYS"/>
+
+                                <Label
+                                    fx:id="lblCinemaCount"
+                                    text="0"
+                                    style="
+                                        -fx-text-fill:#080808;
+                                        -fx-font-size:38px;
+                                        -fx-font-weight:bold;
+                                    "/>
+
+                            </VBox>
+
+
+                            <!-- EMPLOYEES -->
+
+                            <VBox
+                                prefWidth="220"
+                                minWidth="210"
+                                maxWidth="220"
+                                prefHeight="155"
+                                minHeight="155"
+                                maxHeight="155"
+                                alignment="CENTER_LEFT"
+                                style="
+                                    -fx-background-color:white;
+                                    -fx-background-radius:18;
+                                    -fx-padding:22;
+                                    -fx-effect:
+                                        dropshadow(
+                                            gaussian,
+                                            rgba(0,0,0,0.10),
+                                            12,
+                                            0,
+                                            0,
+                                            4
+                                        );
+                                ">
+
+                                <HBox
+                                    alignment="CENTER_LEFT"
+                                    spacing="14">
+
+                                    <Label
+                                        text="👥"
+                                        alignment="CENTER"
+                                        minWidth="52"
+                                        minHeight="52"
+                                        prefWidth="52"
+                                        prefHeight="52"
+                                        style="
+                                            -fx-background-color:#F0E0FF;
+                                            -fx-background-radius:15;
+                                            -fx-font-size:23px;
+                                        "/>
+
+                                    <Label
+                                        text="Employees"
+                                        style="
+                                            -fx-text-fill:#64748B;
+                                            -fx-font-size:18px;
+                                            -fx-font-weight:bold;
+                                        "/>
+
+                                </HBox>
+
+                                <Region VBox.vgrow="ALWAYS"/>
+
+                                <Label
+                                    fx:id="lblEmployeeCount"
+                                    text="0"
+                                    style="
+                                        -fx-text-fill:#080808;
+                                        -fx-font-size:38px;
+                                        -fx-font-weight:bold;
+                                    "/>
+
+                            </VBox>
+
+                        </FlowPane>
+
+
+                        <!-- ================================================= -->
+                        <!-- QUICK ACTIONS TITLE -->
+                        <!-- ================================================= -->
+
+                        <VBox spacing="6">
+
+                            <Label
+                                text="Quick Actions"
+                                style="
+                                    -fx-text-fill:#080808;
+                                    -fx-font-size:27px;
+                                    -fx-font-weight:bold;
+                                "/>
+
+                            <Label
+                                text="Frequently used cinema operations"
+                                style="
+                                    -fx-text-fill:#718096;
+                                    -fx-font-size:15px;
+                                "/>
+
+                        </VBox>
+
+
+                        <!-- ================================================= -->
+                        <!-- QUICK ACTIONS -->
+                        <!-- ================================================= -->
+
+                        <FlowPane
+                            alignment="CENTER"
+                            hgap="20"
+                            vgap="20"
+                            prefWrapLength="1000"
+                            maxWidth="Infinity">
+
+                            <!-- ADD MOVIE -->
+
+                            <Button
+                                fx:id="btnAddMovie"
+                                onAction="#handleAddMovies"
+                                prefWidth="230"
+                                minWidth="230"
+                                maxWidth="230"
+                                prefHeight="72"
+                                minHeight="72"
+                                maxHeight="72"
+                                text="＋   Add Movie"
+                                style="
+                                    -fx-background-color:
+                                        linear-gradient(
+                                            to bottom right,
+                                            #080808,
+                                            #151515,
+                                            #090909
+                                        );
+                                    -fx-text-fill:white;
+                                    -fx-font-size:16px;
+                                    -fx-font-weight:bold;
+                                    -fx-background-radius:15;
+                                    -fx-cursor:hand;
+                                    -fx-effect:
+                                        dropshadow(
+                                            gaussian,
+                                            rgba(0,0,0,0.18),
+                                            10,
+                                            0,
+                                            0,
+                                            4
+                                        );
+                                "/>
+
+
+                            <!-- BOOK TICKET -->
+
+                            <Button
+                                fx:id="btnBookTicket"
+                                onAction="#handleBooking"
+                                prefWidth="230"
+                                minWidth="230"
+                                maxWidth="230"
+                                prefHeight="72"
+                                minHeight="72"
+                                maxHeight="72"
+                                text="🎟   Book Ticket"
+                                style="
+                                    -fx-background-color:#F4C542;
+                                    -fx-text-fill:#080808;
+                                    -fx-font-size:16px;
+                                    -fx-font-weight:bold;
+                                    -fx-background-radius:15;
+                                    -fx-cursor:hand;
+                                    -fx-effect:
+                                        dropshadow(
+                                            gaussian,
+                                            rgba(0,0,0,0.16),
+                                            10,
+                                            0,
+                                            0,
+                                            4
+                                        );
+                                "/>
+
+
+                            <!-- MANAGE BOOKINGS -->
+
+                            <Button
+                                fx:id="btnManageBooking"
+                                onAction="#handleManageBooking"
+                                prefWidth="230"
+                                minWidth="230"
+                                maxWidth="230"
+                                prefHeight="72"
+                                minHeight="72"
+                                maxHeight="72"
+                                text="🔎   Manage Bookings"
+                                style="
+                                    -fx-background-color:#FFF4D6;
+                                    -fx-text-fill:#080808;
+                                    -fx-font-size:16px;
+                                    -fx-font-weight:bold;
+                                    -fx-background-radius:15;
+                                    -fx-border-color:#F4C542;
+                                    -fx-border-radius:15;
+                                    -fx-cursor:hand;
+                                    -fx-effect:
+                                        dropshadow(
+                                            gaussian,
+                                            rgba(0,0,0,0.12),
+                                            10,
+                                            0,
+                                            0,
+                                            4
+                                        );
+                                "/>
+
+                        </FlowPane>
+
+
+                        <!-- ================================================= -->
+                        <!-- FOOTER -->
+                        <!-- ================================================= -->
+
+                        <HBox
+                            alignment="CENTER_LEFT"
+                            spacing="10"
+                            style="
+                                -fx-border-color:#E2E8F0;
+                                -fx-border-width:1 0 0 0;
+                                -fx-padding:22 0 0 0;
+                            ">
+
+                            <Label
+                                text="🎬"
+                                style="
+                                    -fx-font-size:16px;
+                                    -fx-text-fill:#F4C542;
+                                "/>
+
+                            <Label
+                                text="Lebanon Cinema Booking System"
+                                style="
+                                    -fx-text-fill:#718096;
+                                    -fx-font-size:13px;
+                                "/>
+
+                            <Region HBox.hgrow="ALWAYS"/>
+
+                            <Label
+                                text="Management Dashboard"
+                                style="
+                                    -fx-text-fill:#94A3B8;
+                                    -fx-font-size:13px;
+                                "/>
+
+                        </HBox>
+
+                    </VBox>
+
+                </content>
+
+            </ScrollPane>
+
+        </center>
+
+    </BorderPane>
+
+
+    <!-- ===================================================== -->
+    <!-- FLOATING AI RECOMMENDATION BUTTON -->
+    <!-- ===================================================== -->
+<Button
+    fx:id="btnAIRecommendations"
+    onAction="#handleAIRecommendations"
+    StackPane.alignment="BOTTOM_RIGHT"
+    translateX="-30"
+    translateY="-30"
+    prefWidth="70"
+    minWidth="70"
+    maxWidth="70"
+    prefHeight="70"
+    minHeight="70"
+    maxHeight="70"
+    graphicTextGap="0"
+    style="
+        -fx-background-color:#151515;
+        -fx-background-radius:50%;
+        -fx-border-color:#F4C542;
+        -fx-border-width:2;
+        -fx-border-radius:50%;
+        -fx-cursor:hand;
+        -fx-effect:
+            dropshadow(
+                gaussian,
+                rgba(0,0,0,0.30),
+                15,
+                0,
+                0,
+                5
+            );
+    ">
+
+    <graphic>
+
+    <StackPane
+            prefWidth="42"
+            prefHeight="42"
+            maxWidth="42"
+            maxHeight="42">
+        
+        <Label
+            text="🤖"
+            style="
+                -fx-font-size:32px;
+                -fx-text-fill:#F4C542;
+            "/>
+
+    </StackPane>
+
+</graphic>
+
+</Button>
+</StackPane>

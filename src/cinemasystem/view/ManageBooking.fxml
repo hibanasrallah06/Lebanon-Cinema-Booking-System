@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+    xmlns="http://javafx.com/javafx/26"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="cinemasystem.controller.ManageBookingController"
+    style="-fx-background-color:#F5F6F8;">
+
+    <!-- ========================================================= -->
+    <!-- HEADER -->
+    <!-- ========================================================= -->
+<top>
+
+    <VBox
+            spacing="12.0"
+            style="-fx-background-color:#151515;
+                   -fx-padding:18 35 20 35;
+                   -fx-border-color:#2E7D32;
+                   -fx-border-width:0 0 3 0;">
+
+        <!-- TOP BAR -->
+
+        <HBox
+                alignment="CENTER_LEFT"
+                spacing="12.0">
+
+            <!-- BACK -->
+
+            <Button
+                    fx:id="btnBack"
+                    onAction="#handleBack"
+                    text="←  Dashboard"
+                    prefWidth="125.0"
+                    prefHeight="38.0"
+                    style="-fx-background-color:#2A2A2A;
+                           -fx-text-fill:white;
+                           -fx-font-size:13px;
+                           -fx-font-weight:bold;
+                           -fx-background-radius:8;
+                           -fx-border-color:#444444;
+                           -fx-border-radius:8;
+                           -fx-cursor:hand;"/>
+
+
+            <Region
+                    HBox.hgrow="ALWAYS"/>
+
+
+            <Label
+                    text="CINEMA SYSTEM"
+                    style="-fx-text-fill:#AAAAAA;
+                           -fx-font-size:12px;
+                           -fx-font-weight:bold;"/>
+
+        </HBox>
+
+
+        <!-- TITLE -->
+
+        <HBox
+                alignment="CENTER_LEFT"
+                spacing="12.0">
+
+            <Label
+                    text="📋"
+                    style="-fx-font-size:30px;"/>
+
+            <VBox
+                    spacing="2.0">
+
+                <Label
+                        text="Manage Bookings"
+                        style="-fx-text-fill:white;
+                               -fx-font-size:28px;
+                               -fx-font-weight:bold;"/>
+
+                <Label
+                        text="Search, view and cancel customer bookings"
+                        style="-fx-text-fill:#AAAAAA;
+                               -fx-font-size:13px;"/>
+
+            </VBox>
+
+        </HBox>
+
+    </VBox>
+
+</top>
+
+
+    <!-- ========================================================= -->
+    <!-- CENTER -->
+    <!-- ========================================================= -->
+
+    <center>
+
+        <ScrollPane
+            fitToWidth="true"
+            fitToHeight="false"
+            hbarPolicy="NEVER"
+            vbarPolicy="AS_NEEDED"
+            style="
+                -fx-background-color:#F5F6F8;
+                -fx-border-width:0;
+            ">
+
+            <content>
+
+                <VBox
+                    spacing="22"
+                    fillWidth="true"
+                    style="
+                        -fx-background-color:#F5F6F8;
+                        -fx-padding:30 35 35 35;
+                    ">
+
+                    <!-- ================================================= -->
+                    <!-- SEARCH CARD -->
+                    <!-- ================================================= -->
+
+                    <VBox
+                        spacing="15"
+                        style="
+                            -fx-background-color:white;
+                            -fx-background-radius:18;
+                            -fx-padding:25;
+                            -fx-effect:
+                                dropshadow(
+                                    gaussian,
+                                    rgba(0,0,0,0.10),
+                                    12,
+                                    0,
+                                    0,
+                                    4
+                                );
+                        ">
+
+                        <Label
+                            text="Search Bookings"
+                            style="
+                                -fx-text-fill:#080808;
+                                -fx-font-size:22px;
+                                -fx-font-weight:bold;
+                            "/>
+
+                        <Label
+                            text="Search by booking ID, customer name, phone, email or movie title"
+                            style="
+                                -fx-text-fill:#718096;
+                                -fx-font-size:14px;
+                            "/>
+
+                        <HBox
+                            alignment="CENTER_LEFT"
+                            spacing="12">
+
+                            <TextField
+                                fx:id="txtSearch"
+                                promptText="Start typing to search..."
+                                prefHeight="46"
+                                HBox.hgrow="ALWAYS"
+                                style="
+                                    -fx-background-color:#F8FAFC;
+                                    -fx-border-color:#E2E8F0;
+                                    -fx-border-radius:10;
+                                    -fx-background-radius:10;
+                                    -fx-padding:0 15 0 15;
+                                    -fx-font-size:14px;
+                                "/>
+
+                            <Button
+        fx:id="btnEditBooking"
+        onAction="#handleEditBooking"
+        text="✎  Edit Booking"
+        prefWidth="145"
+        prefHeight="46"
+        style="
+            -fx-background-color:#2E7D32;
+            -fx-text-fill:white;
+            -fx-font-size:14px;
+            -fx-font-weight:bold;
+            -fx-background-radius:10;
+            -fx-cursor:hand;
+        "/>
+
+                            <Button
+                                fx:id="btnRefresh"
+                                onAction="#handleRefresh"
+                                text="↻"
+                                prefWidth="52"
+                                prefHeight="46"
+                                style="
+                                    -fx-background-color:#F4C542;
+                                    -fx-text-fill:#080808;
+                                    -fx-font-size:20px;
+                                    -fx-font-weight:bold;
+                                    -fx-background-radius:10;
+                                    -fx-cursor:hand;
+                                "/>
+
+                        </HBox>
+
+                    </VBox>
+
+
+                    <!-- ================================================= -->
+                    <!-- BOOKINGS TABLE -->
+                    <!-- ================================================= -->
+
+                    <VBox
+                        spacing="15"
+                        fillWidth="true"
+                        style="
+                            -fx-background-color:white;
+                            -fx-background-radius:18;
+                            -fx-padding:25;
+                            -fx-effect:
+                                dropshadow(
+                                    gaussian,
+                                    rgba(0,0,0,0.10),
+                                    12,
+                                    0,
+                                    0,
+                                    4
+                                );
+                        ">
+
+                        <HBox
+                            alignment="CENTER_LEFT"
+                            spacing="10">
+
+                            <VBox spacing="3">
+
+                                <Label
+                                    text="Bookings"
+                                    style="
+                                        -fx-text-fill:#080808;
+                                        -fx-font-size:22px;
+                                        -fx-font-weight:bold;
+                                    "/>
+
+                                <Label
+                                    fx:id="lblBookingCount"
+                                    text="0 bookings"
+                                    style="
+                                        -fx-text-fill:#718096;
+                                        -fx-font-size:13px;
+                                    "/>
+
+                            </VBox>
+
+                            <Region HBox.hgrow="ALWAYS"/>
+
+                        </HBox>
+
+
+                        <TableView
+                            fx:id="tblBookings"
+                            prefHeight="430"
+                            minHeight="350"
+                            maxWidth="Infinity"
+                            style="
+                                -fx-background-color:white;
+                                -fx-border-color:#E2E8F0;
+                                -fx-border-radius:10;
+                            ">
+
+                            <columns>
+
+                                <TableColumn
+                                    fx:id="colBookingId"
+                                    text="Booking ID"
+                                    minWidth="65"
+                                    prefWidth="80"/>
+
+                                <TableColumn
+                                    fx:id="colCustomer"
+                                    text="Customer"
+                                    minWidth="100"
+                                    prefWidth="145"/>
+
+                                <TableColumn
+                                    fx:id="colPhone"
+                                    text="Phone"
+                                    minWidth="90"
+                                    prefWidth="120"/>
+
+                                <TableColumn
+                                    fx:id="colMovie"
+                                    text="Movie"
+                                    minWidth="110"
+                                    prefWidth="170"/>
+
+                                <TableColumn
+                                    fx:id="colShowDate"
+                                    text="Show Date"
+                                    minWidth="90"
+                                    prefWidth="105"/>
+
+                                <TableColumn
+                                    fx:id="colStartTime"
+                                    text="Time"
+                                    minWidth="70"
+                                    prefWidth="85"/>
+
+                                <TableColumn
+                                    fx:id="colSeats"
+                                    text="Seats"
+                                    minWidth="100"
+                                    prefWidth="150"/>
+                                
+                                <TableColumn
+        fx:id="colSnacks"
+        text="Snacks"
+        minWidth="130"
+        prefWidth="180"/>
+
+                                <TableColumn
+                                    fx:id="colTotal"
+                                    text="Total"
+                                    minWidth="70"
+                                    prefWidth="90"/>
+
+                                <TableColumn
+                                    fx:id="colStatus"
+                                    text="Status"
+                                    minWidth="80"
+                                    prefWidth="105"/>
+
+                                <TableColumn
+                                    fx:id="colBookingDate"
+                                    text="Booked On"
+                                    minWidth="105"
+                                    prefWidth="135"/>
+
+                            </columns>
+
+                        </TableView>
+
+                    </VBox>
+
+
+                    <!-- ================================================= -->
+                    <!-- SELECTED BOOKING -->
+                    <!-- ================================================= -->
+
+                    <VBox
+                        spacing="18"
+                        style="
+                            -fx-background-color:white;
+                            -fx-background-radius:18;
+                            -fx-padding:25;
+                            -fx-effect:
+                                dropshadow(
+                                    gaussian,
+                                    rgba(0,0,0,0.10),
+                                    12,
+                                    0,
+                                    0,
+                                    4
+                                );
+                        ">
+
+                        <Label
+                            text="Selected Booking"
+                            style="
+                                -fx-text-fill:#080808;
+                                -fx-font-size:22px;
+                                -fx-font-weight:bold;
+                            "/>
+
+                        <Separator/>
+
+
+                        <GridPane
+                            hgap="25"
+                            vgap="15">
+
+                            <columnConstraints>
+
+                                <ColumnConstraints percentWidth="15"/>
+                                <ColumnConstraints percentWidth="35"/>
+                                <ColumnConstraints percentWidth="15"/>
+                                <ColumnConstraints percentWidth="35"/>
+
+                            </columnConstraints>
+
+
+                            <Label
+                                text="Booking ID"
+                                GridPane.columnIndex="0"
+                                GridPane.rowIndex="0"
+                                style="
+                                    -fx-text-fill:#64748B;
+                                    -fx-font-weight:bold;
+                                "/>
+
+                            <Label
+                                fx:id="lblSelectedBookingId"
+                                text="-"
+                                GridPane.columnIndex="1"
+                                GridPane.rowIndex="0"
+                                style="
+                                    -fx-text-fill:#080808;
+                                    -fx-font-size:15px;
+                                    -fx-font-weight:bold;
+                                "/>
+
+
+                            <Label
+                                text="Customer"
+                                GridPane.columnIndex="2"
+                                GridPane.rowIndex="0"
+                                style="
+                                    -fx-text-fill:#64748B;
+                                    -fx-font-weight:bold;
+                                "/>
+
+                            <Label
+                                fx:id="lblSelectedCustomer"
+                                text="-"
+                                GridPane.columnIndex="3"
+                                GridPane.rowIndex="0"
+                                style="
+                                    -fx-text-fill:#080808;
+                                    -fx-font-size:15px;
+                                    -fx-font-weight:bold;
+                                "/>
+
+
+                            <Label
+                                text="Movie"
+                                GridPane.columnIndex="0"
+                                GridPane.rowIndex="1"
+                                style="
+                                    -fx-text-fill:#64748B;
+                                    -fx-font-weight:bold;
+                                "/>
+
+                            <Label
+                                fx:id="lblSelectedMovie"
+                                text="-"
+                                GridPane.columnIndex="1"
+                                GridPane.rowIndex="1"
+                                style="
+                                    -fx-text-fill:#080808;
+                                    -fx-font-size:15px;
+                                    -fx-font-weight:bold;
+                                "/>
+
+
+                            <Label
+                                text="Show"
+                                GridPane.columnIndex="2"
+                                GridPane.rowIndex="1"
+                                style="
+                                    -fx-text-fill:#64748B;
+                                    -fx-font-weight:bold;
+                                "/>
+
+                            <Label
+                                fx:id="lblSelectedShow"
+                                text="-"
+                                GridPane.columnIndex="3"
+                                GridPane.rowIndex="1"
+                                style="
+                                    -fx-text-fill:#080808;
+                                    -fx-font-size:15px;
+                                    -fx-font-weight:bold;
+                                "/>
+
+
+                            <Label
+                                text="Seats"
+                                GridPane.columnIndex="0"
+                                GridPane.rowIndex="2"
+                                style="
+                                    -fx-text-fill:#64748B;
+                                    -fx-font-weight:bold;
+                                "/>
+
+                            <Label
+                                fx:id="lblSelectedSeats"
+                                text="-"
+                                GridPane.columnIndex="1"
+                                GridPane.rowIndex="2"
+                                style="
+                                    -fx-text-fill:#080808;
+                                    -fx-font-size:15px;
+                                    -fx-font-weight:bold;
+                                "/>
+                            
+                            <Label
+        text="Snacks"
+        GridPane.columnIndex="0"
+        GridPane.rowIndex="3"
+        style="
+            -fx-text-fill:#64748B;
+            -fx-font-weight:bold;
+        "/>
+
+<Label
+        fx:id="lblSelectedSnacks"
+        text="No snacks"
+        wrapText="true"
+        GridPane.columnIndex="1"
+        GridPane.rowIndex="3"
+        style="
+            -fx-text-fill:#080808;
+            -fx-font-size:15px;
+            -fx-font-weight:bold;
+        "/>
+
+
+                            <Label
+                                text="Total Amount"
+                                GridPane.columnIndex="2"
+                                GridPane.rowIndex="2"
+                                style="
+                                    -fx-text-fill:#64748B;
+                                    -fx-font-weight:bold;
+                                "/>
+
+                            <Label
+                                fx:id="lblSelectedTotal"
+                                text="-"
+                                GridPane.columnIndex="3"
+                                GridPane.rowIndex="2"
+                                style="
+                                    -fx-text-fill:#080808;
+                                    -fx-font-size:15px;
+                                    -fx-font-weight:bold;
+                                "/>
+
+
+                            <Label
+                                text="Status"
+                                GridPane.columnIndex="0"
+                                GridPane.rowIndex="4"
+                                style="
+                                    -fx-text-fill:#64748B;
+                                    -fx-font-weight:bold;
+                                "/>
+
+                            <Label
+                                fx:id="lblSelectedStatus"
+                                text="-"
+                                GridPane.columnIndex="1"
+                                GridPane.rowIndex="4"
+                                style="
+                                    -fx-text-fill:#080808;
+                                    -fx-font-size:15px;
+                                    -fx-font-weight:bold;
+                                "/>
+
+                        </GridPane>
+
+
+                        <HBox
+                            alignment="CENTER_RIGHT"
+                            spacing="12">
+
+                            <Button
+                                fx:id="btnCancelBooking"
+                                onAction="#handleCancelBooking"
+                                text="✕  Cancel Selected Booking"
+                                prefHeight="48"
+                                prefWidth="220"
+                                style="
+                                    -fx-background-color:#B91C1C;
+                                    -fx-text-fill:white;
+                                    -fx-font-size:14px;
+                                    -fx-font-weight:bold;
+                                    -fx-background-radius:10;
+                                    -fx-cursor:hand;
+                                "/>
+
+                        </HBox>
+
+                    </VBox>
+
+
+                    <!-- ================================================= -->
+                    <!-- FOOTER -->
+                    <!-- ================================================= -->
+
+                    <HBox
+                        alignment="CENTER_LEFT"
+                        spacing="10"
+                        style="
+                            -fx-border-color:#E2E8F0;
+                            -fx-border-width:1 0 0 0;
+                            -fx-padding:20 0 0 0;
+                        ">
+
+                        <Label
+                            text="🎬"
+                            style="
+                                -fx-font-size:16px;
+                            "/>
+
+                        <Label
+                            text="Lebanon Cinema Booking System"
+                            style="
+                                -fx-text-fill:#718096;
+                                -fx-font-size:13px;
+                            "/>
+
+                    </HBox>
+
+                </VBox>
+
+            </content>
+
+        </ScrollPane>
+
+    </center>
+
+</BorderPane>

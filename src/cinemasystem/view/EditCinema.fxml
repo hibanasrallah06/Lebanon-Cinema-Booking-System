@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="550.0"
+            prefWidth="500.0"
+            style="-fx-background-color:#f5f5f5;"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="cinemasystem.controller.EditCinemaController">
+
+    <children>
+
+        <Label layoutX="40.0"
+               layoutY="30.0"
+               text="Edit Cinema"
+               style="-fx-font-size:26px;
+                      -fx-font-weight:bold;
+                      -fx-text-fill:#222222;"/>
+
+        <Label layoutX="40.0"
+               layoutY="68.0"
+               text="Update cinema information"
+               style="-fx-font-size:13px;
+                      -fx-text-fill:#777777;"/>
+
+
+        <VBox layoutX="40.0"
+              layoutY="110.0"
+              spacing="7.0"
+              prefWidth="420.0">
+
+            <Label text="Cinema Name"
+                   style="-fx-font-size:14px;
+                          -fx-font-weight:bold;"/>
+
+            <TextField fx:id="txtCinemaName"
+                       promptText="Enter cinema name"
+                       prefHeight="40.0"
+                       style="-fx-background-radius:6px;
+                              -fx-border-radius:6px;
+                              -fx-border-color:#cccccc;
+                              -fx-padding:8px;"/>
+
+
+            <Label text="Address"
+                   style="-fx-font-size:14px;
+                          -fx-font-weight:bold;
+                          -fx-padding:8px 0 0 0;"/>
+
+            <TextField fx:id="txtAddress"
+                       promptText="Enter cinema address"
+                       prefHeight="40.0"
+                       style="-fx-background-radius:6px;
+                              -fx-border-radius:6px;
+                              -fx-border-color:#cccccc;
+                              -fx-padding:8px;"/>
+
+
+            <Label text="Phone"
+                   style="-fx-font-size:14px;
+                          -fx-font-weight:bold;
+                          -fx-padding:8px 0 0 0;"/>
+
+            <TextField fx:id="txtPhone"
+                       promptText="Enter phone number"
+                       prefHeight="40.0"
+                       style="-fx-background-radius:6px;
+                              -fx-border-radius:6px;
+                              -fx-border-color:#cccccc;
+                              -fx-padding:8px;"/>
+
+
+            <Label text="City"
+                   style="-fx-font-size:14px;
+                          -fx-font-weight:bold;
+                          -fx-padding:8px 0 0 0;"/>
+
+            <ComboBox fx:id="cmbCity"
+                      prefWidth="420.0"
+                      prefHeight="40.0"
+                      promptText="Select city"
+                      style="-fx-background-radius:6px;
+                             -fx-border-radius:6px;
+                             -fx-border-color:#cccccc;"/>
+
+        </VBox>
+
+
+        <Button layoutX="40.0"
+                layoutY="490.0"
+                prefWidth="200.0"
+                prefHeight="42.0"
+                text="Save Changes"
+                onAction="#handleSave"
+                style="-fx-background-color:#2E7D32;
+                       -fx-text-fill:white;
+                       -fx-font-size:14px;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:6px;
+                       -fx-cursor:hand;"/>
+
+        <Button layoutX="260.0"
+                layoutY="490.0"
+                prefWidth="200.0"
+                prefHeight="42.0"
+                text="Cancel"
+                onAction="#handleCancel"
+                style="-fx-background-color:#dddddd;
+                       -fx-text-fill:#333333;
+                       -fx-font-size:14px;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:6px;
+                       -fx-cursor:hand;"/>
+
+    </children>
+
+</AnchorPane>

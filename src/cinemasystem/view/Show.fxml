@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        prefWidth="1200.0"
+        prefHeight="750.0"
+        minWidth="850.0"
+        minHeight="550.0"
+        xmlns="http://javafx.com/javafx/26"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="cinemasystem.controller.ShowController"
+        style="-fx-background-color:#ECECEC;">
+
+    <!-- ================= HEADER ================= -->
+
+    <top>
+
+        <VBox
+                spacing="10"
+                style="-fx-background-color:#111111;
+                       -fx-padding:16 45 18 45;
+                       -fx-border-color:#2E7D32;
+                       -fx-border-width:0 0 3 0;">
+
+            <HBox alignment="CENTER_LEFT">
+
+                <Button
+                        onAction="#handleBack"
+                        text="←  Dashboard"
+                        prefWidth="145"
+                        prefHeight="42"
+                        style="-fx-background-color:#2B2B2B;
+                               -fx-text-fill:white;
+                               -fx-font-size:15px;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;
+                               -fx-border-color:#444444;
+                               -fx-border-radius:8;
+                               -fx-cursor:hand;"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Label
+                        text="CINEMA SYSTEM"
+                        style="-fx-text-fill:#BDBDBD;
+                               -fx-font-size:15px;
+                               -fx-font-weight:bold;"/>
+
+            </HBox>
+
+
+            <HBox
+                    spacing="12"
+                    alignment="CENTER_LEFT">
+
+                <Label
+                        text="🎬"
+                        style="-fx-font-size:28px;"/>
+
+                <VBox spacing="2">
+
+                    <Label
+                            text="Schedule"
+                            style="-fx-text-fill:white;
+                                   -fx-font-size:30px;
+                                   -fx-font-weight:bold;"/>
+
+                    <Label
+                            text="Manage movie schedules, halls and showtimes"
+                            style="-fx-text-fill:#BDBDBD;
+                                   -fx-font-size:15px;"/>
+
+                </VBox>
+
+            </HBox>
+
+        </VBox>
+
+    </top>
+
+
+    <!-- ================= CENTER ================= -->
+
+    <center>
+
+        <VBox
+                spacing="15"
+                fillWidth="true"
+                style="-fx-padding:25 45 30 45;
+                       -fx-background-color:#ECECEC;">
+
+            <!-- ================= TOOLBAR ================= -->
+
+            <HBox
+                    spacing="10"
+                    alignment="CENTER_LEFT">
+
+                <TextField
+                        fx:id="txtSearch"
+                        promptText="🔍  Search movie, hall or time..."
+                        prefHeight="44"
+                        HBox.hgrow="ALWAYS"
+                        style="-fx-background-color:white;
+                               -fx-background-radius:8;
+                               -fx-border-color:#DDDDDD;
+                               -fx-border-radius:8;
+                               -fx-padding:0 12;
+                               -fx-font-size:14px;"/>
+
+
+                <Button
+                        fx:id="btnAdd"
+                        onAction="#handleAdd"
+                        text="+ Add Show"
+                        prefWidth="120"
+                        prefHeight="44"
+                        style="-fx-background-color:#2E7D32;
+                               -fx-text-fill:white;
+                               -fx-font-size:14px;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;
+                               -fx-cursor:hand;"/>
+
+
+                <Button
+                        fx:id="btnEdit"
+                        onAction="#handleEdit"
+                        text="Edit"
+                        prefWidth="85"
+                        prefHeight="44"
+                        style="-fx-background-color:#757575;
+                               -fx-text-fill:white;
+                               -fx-font-size:14px;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;
+                               -fx-cursor:hand;"/>
+
+
+                <Button
+                        fx:id="btnDelete"
+                        onAction="#handleDelete"
+                        text="Delete"
+                        prefWidth="85"
+                        prefHeight="44"
+                        style="-fx-background-color:#D32F2F;
+                               -fx-text-fill:white;
+                               -fx-font-size:14px;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;
+                               -fx-cursor:hand;"/>
+
+            </HBox>
+
+
+            <!-- ================= SECOND TOOLBAR ================= -->
+
+            <HBox
+                    spacing="10"
+                    alignment="CENTER_LEFT">
+
+                <ComboBox
+                        fx:id="cmbReportCinema"
+                        promptText="Select Cinema"
+                        prefWidth="220"
+                        prefHeight="42"
+                        style="-fx-background-color:white;
+                               -fx-background-radius:8;
+                               -fx-border-color:#DDDDDD;
+                               -fx-border-radius:8;"/>
+
+
+                <Button
+                        fx:id="btnReport"
+                        onAction="#handleReport"
+                        text="Report"
+                        prefWidth="100"
+                        prefHeight="42"
+                        style="-fx-background-color:#1565C0;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;
+                               -fx-cursor:hand;"/>
+
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+
+                <Button
+                        onAction="#handlePreviousDay"
+                        text="←"
+                        prefWidth="45"
+                        prefHeight="42"
+                        style="-fx-background-color:#757575;
+                               -fx-text-fill:white;
+                               -fx-font-size:18px;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;
+                               -fx-cursor:hand;"/>
+
+
+                <Label
+                        fx:id="lblCurrentDate"
+                        text="Today"
+                        prefWidth="150"
+                        alignment="CENTER"
+                        style="-fx-background-color:white;
+                               -fx-background-radius:8;
+                               -fx-font-size:15px;
+                               -fx-font-weight:bold;
+                               -fx-padding:11 15;"/>
+
+
+                <Button
+                        onAction="#handleNextDay"
+                        text="→"
+                        prefWidth="45"
+                        prefHeight="42"
+                        style="-fx-background-color:#757575;
+                               -fx-text-fill:white;
+                               -fx-font-size:18px;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;
+                               -fx-cursor:hand;"/>
+
+
+                <Button
+                        onAction="#handleToday"
+                        text="Today"
+                        prefWidth="80"
+                        prefHeight="42"
+                        style="-fx-background-color:#2E7D32;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;
+                               -fx-cursor:hand;"/>
+
+            </HBox>
+
+
+            <!-- ================= TIMELINE ================= -->
+
+            <ScrollPane
+                    fx:id="scheduleScroll"
+                    VBox.vgrow="ALWAYS"
+                    fitToWidth="true"
+                    fitToHeight="false"
+                    hbarPolicy="AS_NEEDED"
+                    vbarPolicy="AS_NEEDED"
+                    style="-fx-background-color:#ECECEC;
+                           -fx-background:#ECECEC;">
+
+                <content>
+
+                    <VBox
+                            fx:id="scheduleContainer"
+                            spacing="8"
+                            fillWidth="true"
+                            style="-fx-background-color:#ECECEC;
+                                   -fx-padding:5;"/>
+
+                </content>
+
+            </ScrollPane>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

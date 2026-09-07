@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0"
+            prefWidth="500.0"
+            style="-fx-background-color:#f5f5f5;"
+            xmlns="http://javafx.com/javafx/26"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="cinemasystem.controller.AddHallController">
+
+    <children>
+
+        <Label layoutX="40.0"
+               layoutY="30.0"
+               text="Add New Hall"
+               style="-fx-font-size:26px;
+                      -fx-font-weight:bold;
+                      -fx-text-fill:#222222;"/>
+
+        <Label layoutX="40.0"
+               layoutY="68.0"
+               text="Create a new hall for the selected cinema"
+               style="-fx-font-size:13px;
+                      -fx-text-fill:#777777;"/>
+
+
+        <VBox layoutX="40.0"
+              layoutY="115.0"
+              spacing="7.0"
+              prefWidth="420.0">
+
+            <Label text="Hall Name"
+                   style="-fx-font-size:14px;
+                          -fx-font-weight:bold;"/>
+
+            <TextField fx:id="txtHallName"
+                       promptText="Enter hall name"
+                       prefHeight="40.0"
+                       style="-fx-background-radius:6px;
+                              -fx-border-radius:6px;
+                              -fx-border-color:#cccccc;
+                              -fx-padding:8px;"/>
+
+
+            <Label text="Capacity"
+                   style="-fx-font-size:14px;
+                          -fx-font-weight:bold;
+                          -fx-padding:8px 0 0 0;"/>
+
+            <TextField fx:id="txtCapacity"
+                       promptText="Enter number of seats"
+                       prefHeight="40.0"
+                       style="-fx-background-radius:6px;
+                              -fx-border-radius:6px;
+                              -fx-border-color:#cccccc;
+                              -fx-padding:8px;"/>
+
+        </VBox>
+
+
+        <Button layoutX="40.0"
+                layoutY="295.0"
+                prefWidth="200.0"
+                prefHeight="42.0"
+                text="Add Hall"
+                onAction="#handleAdd"
+                style="-fx-background-color:#2E7D32;
+                       -fx-text-fill:white;
+                       -fx-font-size:14px;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:6px;
+                       -fx-cursor:hand;"/>
+
+        <Button layoutX="260.0"
+                layoutY="295.0"
+                prefWidth="200.0"
+                prefHeight="42.0"
+                text="Cancel"
+                onAction="#handleCancel"
+                style="-fx-background-color:#dddddd;
+                       -fx-text-fill:#333333;
+                       -fx-font-size:14px;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:6px;
+                       -fx-cursor:hand;"/>
+
+    </children>
+
+</AnchorPane>
